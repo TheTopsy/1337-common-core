@@ -15,11 +15,4 @@ int ft_memcmp(const void *vs1, const void *vs2, size_t n)
         }
         return (0);
 
-}/*
-int main()
-{
-	char *s1 = "test";
-	//char *s2 = "test";
-	//printf("mine : %d\n", ft_memcmp(s1, NULL, 6));
-	printf("og : %d", memcmp(s1, NULL, 6));
-}*/
+}

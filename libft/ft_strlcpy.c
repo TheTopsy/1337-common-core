@@ -17,11 +17,4 @@ size_t ft_strlcpy(char *dst, const char *src, size_t size)
 	}
 	dst[i] = '\0';
 	return l;
-}/*
-int main()
-{
-	char s[] = "baysal";
-	char d[] = "klb";
-	printf("%ld\n", ft_strlcpy(d, NULL, 5));
-	printf("%s", d);
-}*/
+}

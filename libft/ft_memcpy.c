@@ -11,11 +11,4 @@ void *ft_memcpy(void *d, const void *s, size_t n)
 		i++;
 	}
 	return dest;
-}/*
-int main()
-{
-	char s[] = "";
-	char d[20] = "123456789";
-	printf("%s", (char *)memcpy(d + 3, d, 9));
-	//printf("%s", (char *)ft_memcpy(d + 3, d, 9));
-}*/
+}

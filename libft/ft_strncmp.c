@@ -13,8 +13,3 @@ int ft_strncmp(const char *s1,const char *s2, size_t n)
 	}
 	return (0);
 }
-int main()
-{
-	printf("%d\n", strncmp("jaydee", "jad", 3));
-	printf("%d\n", ft_strncmp("jaydee", "jad", 3));
-}

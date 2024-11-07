@@ -16,21 +16,8 @@ char *ft_strrchr(const char *str, int c)
 			i--;
 		}	
 		if(i< 0)
-		{
-			printf("sf bikhir");
 			return NULL;
-		}
-		
         str += i;
 	return (char *)str;
-}
-int main()
-{	
-	char *p = "baysal";
-	char k = ' ';
-	ft_strrchr(p,k);
-        //printf("%s\n", ft_strrchr(p,k));
-	//printf("%s\n",strrchr(p, k));
-	return 0;
 }
 

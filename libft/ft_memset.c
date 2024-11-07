@@ -11,9 +11,3 @@ void *ft_memset(void *s, int c, size_t n)
 	}
 	return (void *)p;
 }
-int main()
-{
-	char s1[6] = "bzazl";
-	//printf("og : %s\n", (char *)memset(s1, 'l', 9));
-	printf("mine : %s", (char *)ft_memset(s1, 'l', 9));
-}

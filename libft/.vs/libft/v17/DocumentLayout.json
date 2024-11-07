@@ -1,0 +1,581 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\azert\\Desktop\\common_core\\libft\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_toupper.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_toupper.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_tolower.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_tolower.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_substr.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_substr.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strtrim.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_strtrim.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strrchr.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_strrchr.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strnstr.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_strnstr.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strncmp.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_strncmp.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strmapi.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_strmapi.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strlen.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_strlen.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strlcpy.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_strlcpy.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strlcat.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_strlcat.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strjoin.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_strjoin.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_striteri.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_striteri.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strdup.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_strdup.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strchr.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_strchr.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_split.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_split.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_putstr_fd.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_putstr_fd.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_putnbr_fd.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_putnbr_fd.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_putendl_fd.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_putendl_fd.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_putchar_fd.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_putchar_fd.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_memset.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_memset.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_memmove.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_memmove.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_memcpy.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_memcpy.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_memcmp.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_memcmp.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_memchr.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_memchr.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_itoa.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_itoa.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_isprint.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_isprint.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_isdigit.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_isdigit.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_isalpha.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_isalpha.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_isascii.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_isascii.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_isalnum.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_isalnum.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_calloc.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_calloc.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_bzero.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ft_bzero.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ft_toupper.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_toupper.c",
+              "RelativeDocumentMoniker": "ft_toupper.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_toupper.c",
+              "RelativeToolTip": "ft_toupper.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:41:11.558Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ft_tolower.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_tolower.c",
+              "RelativeDocumentMoniker": "ft_tolower.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_tolower.c",
+              "RelativeToolTip": "ft_tolower.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:41:03.879Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ft_substr.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_substr.c",
+              "RelativeDocumentMoniker": "ft_substr.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_substr.c",
+              "RelativeToolTip": "ft_substr.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:40:54.349Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ft_strtrim.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strtrim.c",
+              "RelativeDocumentMoniker": "ft_strtrim.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strtrim.c",
+              "RelativeToolTip": "ft_strtrim.c",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAADcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:40:38.779Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ft_strrchr.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strrchr.c",
+              "RelativeDocumentMoniker": "ft_strrchr.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strrchr.c",
+              "RelativeToolTip": "ft_strrchr.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:40:29.643Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ft_strnstr.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strnstr.c",
+              "RelativeDocumentMoniker": "ft_strnstr.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strnstr.c",
+              "RelativeToolTip": "ft_strnstr.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:40:22.246Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ft_strncmp.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strncmp.c",
+              "RelativeDocumentMoniker": "ft_strncmp.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strncmp.c",
+              "RelativeToolTip": "ft_strncmp.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:40:14.645Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ft_strmapi.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strmapi.c",
+              "RelativeDocumentMoniker": "ft_strmapi.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strmapi.c",
+              "RelativeToolTip": "ft_strmapi.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:39:58.082Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ft_strlen.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strlen.c",
+              "RelativeDocumentMoniker": "ft_strlen.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strlen.c",
+              "RelativeToolTip": "ft_strlen.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:39:49.635Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ft_strlcpy.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strlcpy.c",
+              "RelativeDocumentMoniker": "ft_strlcpy.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strlcpy.c",
+              "RelativeToolTip": "ft_strlcpy.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:39:38.401Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ft_strlcat.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strlcat.c",
+              "RelativeDocumentMoniker": "ft_strlcat.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strlcat.c",
+              "RelativeToolTip": "ft_strlcat.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:39:31.061Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ft_strjoin.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strjoin.c",
+              "RelativeDocumentMoniker": "ft_strjoin.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strjoin.c",
+              "RelativeToolTip": "ft_strjoin.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:39:22.062Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ft_striteri.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_striteri.c",
+              "RelativeDocumentMoniker": "ft_striteri.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_striteri.c",
+              "RelativeToolTip": "ft_striteri.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:38:54.286Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ft_strdup.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strdup.c",
+              "RelativeDocumentMoniker": "ft_strdup.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strdup.c",
+              "RelativeToolTip": "ft_strdup.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:38:46.622Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ft_strchr.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strchr.c",
+              "RelativeDocumentMoniker": "ft_strchr.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_strchr.c",
+              "RelativeToolTip": "ft_strchr.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:38:37.033Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ft_split.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_split.c",
+              "RelativeDocumentMoniker": "ft_split.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_split.c",
+              "RelativeToolTip": "ft_split.c",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAE4AAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:38:25.747Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ft_putstr_fd.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_putstr_fd.c",
+              "RelativeDocumentMoniker": "ft_putstr_fd.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_putstr_fd.c",
+              "RelativeToolTip": "ft_putstr_fd.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:38:17.177Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ft_putnbr_fd.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_putnbr_fd.c",
+              "RelativeDocumentMoniker": "ft_putnbr_fd.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_putnbr_fd.c",
+              "RelativeToolTip": "ft_putnbr_fd.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:38:10.131Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ft_putendl_fd.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_putendl_fd.c",
+              "RelativeDocumentMoniker": "ft_putendl_fd.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_putendl_fd.c",
+              "RelativeToolTip": "ft_putendl_fd.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:38:02.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ft_putchar_fd.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_putchar_fd.c",
+              "RelativeDocumentMoniker": "ft_putchar_fd.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_putchar_fd.c",
+              "RelativeToolTip": "ft_putchar_fd.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:37:49.512Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ft_memset.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_memset.c",
+              "RelativeDocumentMoniker": "ft_memset.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_memset.c",
+              "RelativeToolTip": "ft_memset.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:37:42.048Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ft_memmove.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_memmove.c",
+              "RelativeDocumentMoniker": "ft_memmove.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_memmove.c",
+              "RelativeToolTip": "ft_memmove.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:37:33.897Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ft_memcpy.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_memcpy.c",
+              "RelativeDocumentMoniker": "ft_memcpy.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_memcpy.c",
+              "RelativeToolTip": "ft_memcpy.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:37:25.807Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ft_memcmp.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_memcmp.c",
+              "RelativeDocumentMoniker": "ft_memcmp.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_memcmp.c",
+              "RelativeToolTip": "ft_memcmp.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:37:16.447Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ft_memchr.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_memchr.c",
+              "RelativeDocumentMoniker": "ft_memchr.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_memchr.c",
+              "RelativeToolTip": "ft_memchr.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:37:08.696Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "ft_itoa.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_itoa.c",
+              "RelativeDocumentMoniker": "ft_itoa.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_itoa.c",
+              "RelativeToolTip": "ft_itoa.c",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAADUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:36:51.307Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "ft_isprint.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_isprint.c",
+              "RelativeDocumentMoniker": "ft_isprint.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_isprint.c",
+              "RelativeToolTip": "ft_isprint.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:36:42.842Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "ft_isdigit.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_isdigit.c",
+              "RelativeDocumentMoniker": "ft_isdigit.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_isdigit.c",
+              "RelativeToolTip": "ft_isdigit.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:36:35.115Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "ft_isascii.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_isascii.c",
+              "RelativeDocumentMoniker": "ft_isascii.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_isascii.c",
+              "RelativeToolTip": "ft_isascii.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:36:19.8Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ft_isalpha.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_isalpha.c",
+              "RelativeDocumentMoniker": "ft_isalpha.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_isalpha.c",
+              "RelativeToolTip": "ft_isalpha.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:36:11.87Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "ft_isalnum.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_isalnum.c",
+              "RelativeDocumentMoniker": "ft_isalnum.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_isalnum.c",
+              "RelativeToolTip": "ft_isalnum.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:36:03.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "ft_calloc.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_calloc.c",
+              "RelativeDocumentMoniker": "ft_calloc.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_calloc.c",
+              "RelativeToolTip": "ft_calloc.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:35:49.472Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "ft_bzero.c",
+              "DocumentMoniker": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_bzero.c",
+              "RelativeDocumentMoniker": "ft_bzero.c",
+              "ToolTip": "C:\\Users\\azert\\Desktop\\common_core\\libft\\ft_bzero.c",
+              "RelativeToolTip": "ft_bzero.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-07T12:35:24.27Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -11,15 +11,4 @@ void ft_bzero(void *s, size_t n)
 
 	}
 }
-int main()
-{
-	char str[3] = "sge";
-	int i = 0;
-	ft_bzero(str, sizeof(str));
 
-	while(i < 3)
-	{
-		printf("%d", str[i]);
-		i++;
-	}
-}

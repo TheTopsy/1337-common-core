@@ -7,9 +7,3 @@ int ft_isdigit(int ch)
         }
         return (0);
 }
-int main()
-{
-        printf("%d\n", ft_isdigit('l'));
-        //printf("%d\n", isalpha('j'));
-        return 0;
-}

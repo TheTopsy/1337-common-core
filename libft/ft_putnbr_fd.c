@@ -7,7 +7,11 @@ void	ft_putchar_fd(char c, int fd)
 
 void ft_putnbr_fd(int n, int fd)
 {
-
+	if(n == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+		return;
+	}
 	if (n < 0)
        	{
 		ft_putchar_fd('-', fd);
@@ -20,9 +24,4 @@ void ft_putnbr_fd(int n, int fd)
 	}
 	if (n < 10)
 	       	ft_putchar_fd(n + 48, fd);
-}
-int main()
-{
-	int fd = open("bzola.txt", O_WRONLY | O_CREAT |O_TRUNC, 0666);
-	ft_putnbr_fd(2147483648, fd);
 }

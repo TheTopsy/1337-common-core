@@ -9,9 +9,3 @@ void ft_putstr_fd(char *s, int fd)
 		s++;
 	}
 }
-int main()
-{
-	char str[] ="D";
-	int fd = open("bzola.txt", O_WRONLY | O_CREAT | O_TRUNC, 0666);
-	ft_putstr_fd(str, fd);
-}

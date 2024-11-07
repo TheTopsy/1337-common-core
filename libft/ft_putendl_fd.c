@@ -10,9 +10,3 @@ void ft_putendl_fd(char *s, int fd)
         }
 	write(fd, "\n", 1);
 }
-int main()
-{
-        char str[] ="Dbz";
-        int fd = open("bzola.txt", O_WRONLY | O_CREAT | O_TRUNC, 0666);
-        ft_putendl_fd(str, fd);
-}

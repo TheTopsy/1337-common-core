@@ -7,7 +7,3 @@ int ft_tolower(int ch)
 	}
 	return (ch);
 }
-int main ()
-{
-	printf("%c", ft_tolower('z'));
-}

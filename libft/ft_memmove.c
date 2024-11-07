@@ -20,11 +20,3 @@ void *ft_memmove(void *d, const void *s, size_t n)
 	}
 	return d;
 }
-int main()
-{	
-	char str[] = "Hello, World!";
-	//printf("%s", (char *)memmove(str + 3, str, 10));
-	printf("%s", (char *)ft_memmove(str  + 3, str, 10));
-	//ft_memmove(str + 3, str, 10);
-	//printf("%s", str);
-}

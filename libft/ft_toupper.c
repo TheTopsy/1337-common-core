@@ -7,8 +7,3 @@ int ft_toupper(int ch)
 	}
 	return (ch);
 }
-int main()
-{
-	printf("%c", ft_toupper('n'));
-	return 0;
-}

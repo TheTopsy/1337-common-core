@@ -22,12 +22,25 @@ char *n_iszero()
 	str[1] = '\0';
         return str;
 }
+char *n_ismin()
+{
+	char *str = malloc(12);
+	int i = 11;
+	char intmin[] = "-2147483648";
+	
+	str[i + 1] = '\0';
+	while(i--)
+		str[i] = intmin[i];
+	return str;
+}
 char *ft_itoa(int n)
 {
 	char *str;
 	int i = 0;
 	int tmp = n;
-
+	
+	if(n == -2147483648)
+		return n_ismin();
 	if(n == 0)
 		return n_iszero();
 	while(tmp != 0)
@@ -51,8 +64,8 @@ char *ft_itoa(int n)
 			return NULL;
 	}
 	return convertn(n, i, str);
-}
+}/*
 int main()
 {
-	printf("%s\n", ft_itoa(-990));
-}
+	printf("%s", ft_itoa(-2147483648LL));
+}*/

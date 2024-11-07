@@ -13,10 +13,3 @@ void *ft_memchr(const void *s, int c, size_t n)
         return NULL;
 }
 
-int main()
-{
-	char str[3] = "hah";
-	//char *d = ft_memchr(str, 'z', 3);
-	char *d = memchr(str, 'z', 3); 
-	printf("%s", d);
-}

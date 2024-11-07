@@ -25,9 +25,3 @@ char *ft_strjoin(char const *s1, char const *s2)
 	str[i] = '\0';
 	return str;
 }
-int main()
-{
-	char s1[30] = "bzazl";
-	char s2[30] = "kbar";
-	printf("%s",ft_strjoin(s1, s2));
-}

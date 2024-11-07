@@ -8,9 +8,3 @@ int ft_isalpha(int ch)
 	}
 	return (0);
 }
-int main()
-{
-	printf("%d\n", ft_isalpha('j'));
-	//printf("%d\n", isalpha('j'));
-	return 0;
-}

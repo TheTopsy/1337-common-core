@@ -76,17 +76,4 @@
 		if (fill(arr, s, c))
 			return (NULL);
 		return (arr);
-	}/*
-	int main()
-	{
-		char *s = "__opo__ii_iiiiiii_iiiiiiiiiiiii__bzola__llpl+____";
-		char **arr = ft_split(s, '_');
-		int i = 0;
-		while(i < count_word(s, '_'))
-		{
-			printf("%s\n", arr[i]);
-			i++;
-		}
-		//printf("%ld\n", count_word(s, '0'));
-
-	}*/
+	}

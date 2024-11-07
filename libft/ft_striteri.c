@@ -10,14 +10,3 @@ void ft_striteri(char *s, void (*f)(unsigned int, char*))
 		i++;
 	}
 }
-void foo(unsigned int i, char *c)
-{
-	*c = '_';
-	i = i + 1;
-}
-int main()
-{
-	char str[] = "";
-	ft_striteri(str, foo);
-	printf("%s\n", str);
-}

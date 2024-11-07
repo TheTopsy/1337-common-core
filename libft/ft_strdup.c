@@ -18,12 +18,3 @@ char *ft_strdup(const char *s)
 	str[i] = '\0';
 	return str;
 }
-int main()
-{
-	char source[] = "van nestelroy 5 l 2";
-
-	char* target = ft_strdup(source);
-	//free(target);
-	printf("%s", target);
-	return 0;
-}

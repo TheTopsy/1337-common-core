@@ -8,11 +8,3 @@ int ft_isalnum(int ch)
         }
         return (0);
 }
-int main()
-{
-        printf("%d\n", ft_isalnum('p'));
-	printf("%d\n", ft_isalnum('/'));
-        printf("%d\n", ft_isalnum('1'));
-        return 0;
-}
-

@@ -8,10 +8,3 @@ int ft_isascii(int ch)
         }
         return (0);
 }
-int main()
-{
-        printf("%d\n", ft_isascii(128));
-        printf("%d\n", isascii(128));
-        return 0;
-}
-

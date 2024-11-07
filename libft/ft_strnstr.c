@@ -19,9 +19,3 @@ char *strnstr(const char *big, const char *little, size_t len)
 	//printf("null");
 	return NULL;
 }
-int main()
-{
-	const char *b = "ezaed";
-	const char *l = "za";
-	printf("%s\n", strnstr(b, l, 5));
-}

@@ -6,6 +6,8 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 	size_t i = 0;
 	while(s[i])
 		i++;
+	if(len > (i - start))
+		len = (i - start);
 	char *sub;
 	if(start >= i)
 	{
@@ -21,15 +23,8 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 	i = 0;
 	while(len--)
 	{
-		sub[i] = s[start++];
-		i++;
+		sub[i++] = s[start++];
 	}
 	sub[i] = '\0';
 	return sub;
-}
-int main()
-{
-	char str[5] = "bzazl";
-	//free(str);
-	printf("%s", ft_substr(str, 10000, 156));
 }

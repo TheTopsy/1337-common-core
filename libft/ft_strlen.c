@@ -7,9 +7,3 @@ size_t ft_strlen(const char *s)
 		i++;
 	return i;
 }
-int main()
-{
-	printf("%ld\n", ft_strlen(""));
-	printf("%ld\n", strlen(""));
-	return 0;
-}

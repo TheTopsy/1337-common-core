@@ -22,11 +22,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dst[k] = '\0';
 	return sln + dln;
 }
-int main()
-{
-	char d[] = "wfa";
-	char s[] = "dsf";
-	printf("%ld\n", ft_strlcat(d, s, 2));
-	printf("%s\n", d);
-
-}
