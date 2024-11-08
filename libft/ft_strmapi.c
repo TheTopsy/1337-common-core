@@ -6,7 +6,7 @@
 /*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 00:23:01 by adahab            #+#    #+#             */
-/*   Updated: 2024/11/08 00:23:03 by adahab           ###   ########.fr       */
+/*   Updated: 2024/11/08 11:18:10 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int		i;
+	size_t	i;
 	char	*str;
 
 	i = 0;

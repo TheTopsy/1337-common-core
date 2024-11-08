@@ -6,7 +6,7 @@
 /*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 00:14:41 by adahab            #+#    #+#             */
-/*   Updated: 2024/11/08 00:15:41 by adahab           ###   ########.fr       */
+/*   Updated: 2024/11/08 10:22:22 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 #include <stdlib.h>
 #include <string.h>
 
-int	safe_malloc(char **token_v, int position, size_t buffer)
+int	allocate(char **arr, int pos, size_t buffer)
 {
 	int	i;
 
 	i = 0;
-	token_v[position] = malloc(buffer);
-	if (NULL == token_v[position])
+	arr[pos] = malloc(buffer);
+	if (!arr[pos])
 	{
-		while (i < position)
-			free(token_v[i++]);
-		free(token_v);
+		while (i < pos)
+			free(arr[i++]);
+		free(arr);
 		return (1);
 	}
 	return (0);
 }
 
-int	fill(char **token_v, char const *s, char delimeter)
+int	cpyword(char **arr, char const *s, char c)
 {
 	size_t	len;
 	int		i;
@@ -40,25 +40,25 @@ int	fill(char **token_v, char const *s, char delimeter)
 	while (*s)
 	{
 		len = 0;
-		while (*s == delimeter && *s)
-			++s;
-		while (*s != delimeter && *s)
+		while (*s == c && *s)
+			s++;
+		while (*s != c && *s)
 		{
-			++len;
-			++s;
+			len++;
+			s++;
 		}
 		if (len)
 		{
-			if (safe_malloc(token_v, i, len + 1))
+			if (allocate(arr, i, len + 1))
 				return (1);
-			ft_strlcpy(token_v[i], s - len, len + 1);
+			ft_strlcpy(arr[i], s - len, len + 1);
 		}
-		++i;
+		i++;
 	}
 	return (0);
 }
 
-size_t	count_word(char const *str, char sep)
+size_t	count_word(char const *str, char c)
 {
 	int	i;
 	int	flag;
@@ -67,11 +67,11 @@ size_t	count_word(char const *str, char sep)
 	flag = 1;
 	while (*str)
 	{
-		if (flag == 1 && *str != sep)
+		if (flag == 1 && *str != c)
 		{
 			i++;
 		}
-		if (*str != sep)
+		if (*str != c)
 			flag = 0;
 		else
 			flag = 1;
@@ -92,7 +92,7 @@ char	**ft_split(char const *s, char c)
 	if (!arr)
 		return (NULL);
 	arr[word_count] = NULL;
-	if (fill(arr, s, c))
+	if (cpyword(arr, s, c))
 		return (NULL);
 	return (arr);
 }
