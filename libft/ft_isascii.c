@@ -1,10 +1,23 @@
-#include<stdio.h>
-#include<ctype.h>
-int ft_isascii(int ch)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/08 00:03:18 by adahab            #+#    #+#             */
+/*   Updated: 2024/11/08 00:03:20 by adahab           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <ctype.h>
+#include <stdio.h>
+
+int	ft_isascii(int ch)
 {
-        if(ch >= 0 && ch <= 127)
-        {
-                return (1);
-        }
-        return (0);
+	if (ch >= 0 && ch <= 127)
+	{
+		return (1);
+	}
+	return (0);
 }

@@ -1,7 +1,20 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include"libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/08 00:25:01 by adahab            #+#    #+#             */
+/*   Updated: 2024/11/08 00:25:04 by adahab           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 int	ft_check_set(char c, char const *set)
 {
 	while (*set)
@@ -15,10 +28,13 @@ int	ft_check_set(char c, char const *set)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	unsigned int i = 0;
-	unsigned int j = ft_strlen(s1);
-	char	*q;
-	while(s1[i] && ft_check_set(s1[i], set))
+	unsigned int	i;
+	unsigned int	j;
+	char			*q;
+
+	i = 0;
+	j = ft_strlen(s1);
+	while (s1[i] && ft_check_set(s1[i], set))
 		i++;
 	while (j > i && ft_check_set(s1[j - 1], set))
 		j--;

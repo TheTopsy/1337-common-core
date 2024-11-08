@@ -1,71 +1,97 @@
-#include<stdio.h>
-#include<stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/07 23:48:37 by adahab            #+#    #+#             */
+/*   Updated: 2024/11/07 23:56:46 by adahab           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char *convertn(int n, int i, char *str)
+#include <stdio.h>
+#include <stdlib.h>
+
+char	*convertn(int n, int i, char *str)
 {
 	str[i] = '\0';
-        i--;
-        while(n > 0)
-        {
-                str[i] = (n % 10) + 48;
-                n /= 10;
-                i--;
-        }
-        return str;
+	i--;
+	while (n > 0)
+	{
+		str[i] = (n % 10) + 48;
+		n /= 10;
+		i--;
+	}
+	return (str);
 }
-char *n_iszero()
+
+char	*n_iszero(void)
 {
-	char *str = malloc(2);
-	if(!str)
-        	return NULL;
+	char	*str;
+
+	str = malloc(2);
+	if (!str)
+		return (NULL);
 	str[0] = '0';
 	str[1] = '\0';
-        return str;
+	return (str);
 }
-char *n_ismin()
+
+char	*n_ismin(void)
 {
-	char *str = malloc(12);
-	int i = 11;
-	char intmin[] = "-2147483648";
-	
+	char	*str;
+	int		i;
+	char	*intmin;
+
+	intmin = "-2147483648";
+	str = malloc(12);
+	i = 11;
 	str[i + 1] = '\0';
-	while(i--)
+	while (i--)
 		str[i] = intmin[i];
-	return str;
+	return (str);
 }
-char *ft_itoa(int n)
+
+int	count_digit(int n)
 {
-	char *str;
-	int i = 0;
-	int tmp = n;
-	
-	if(n == -2147483648)
-		return n_ismin();
-	if(n == 0)
-		return n_iszero();
-	while(tmp != 0)
+	int	tmp;
+	int	i;
+
+	i = 0;
+	tmp = n;
+	while (tmp != 0)
 	{
 		tmp /= 10;
 		i++;
 	}
-	if(n < 0)
+	return (i);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	int		i;
+
+	if (n == -2147483648)
+		return (n_ismin());
+	if (n == 0)
+		return (n_iszero());
+	i = count_digit(n);
+	if (n < 0)
 	{
 		i++;
 		str = malloc(i + 1);
-		if(!str)
-			return NULL;
+		if (!str)
+			return (NULL);
 		str[0] = '-';
 		n = -n;
 	}
 	else
 	{
 		str = malloc(i + 1);
-		if(!str)
-			return NULL;
+		if (!str)
+			return (NULL);
 	}
-	return convertn(n, i, str);
-}/*
-int main()
-{
-	printf("%s", ft_itoa(-2147483648LL));
-}*/
+	return (convertn(n, i, str));
+}

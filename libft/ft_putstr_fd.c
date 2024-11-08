@@ -1,9 +1,22 @@
-#include<stdio.h>
-#include<unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/08 00:14:14 by adahab            #+#    #+#             */
+/*   Updated: 2024/11/08 00:14:15 by adahab           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <fcntl.h>
-void ft_putstr_fd(char *s, int fd)
+#include <stdio.h>
+#include <unistd.h>
+
+void	ft_putstr_fd(char *s, int fd)
 {
-	while(*s)
+	while (*s)
 	{
 		write(fd, s, 1);
 		s++;

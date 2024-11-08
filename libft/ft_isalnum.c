@@ -1,10 +1,24 @@
-#include<stdio.h>
-#include<ctype.h>
-int ft_isalnum(int ch)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/08 00:03:10 by adahab            #+#    #+#             */
+/*   Updated: 2024/11/08 00:03:11 by adahab           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <ctype.h>
+#include <stdio.h>
+
+int	ft_isalnum(int ch)
 {
-        if((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9'))
-        {
-                return (1);
-        }
-        return (0);
+	if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || (ch >= '0'
+			&& ch <= '9'))
+	{
+		return (1);
+	}
+	return (0);
 }

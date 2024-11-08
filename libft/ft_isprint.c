@@ -1,10 +1,23 @@
-#include<stdio.h>
-#include<ctype.h>
-int ft_isprint(int ch)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/08 00:04:02 by adahab            #+#    #+#             */
+/*   Updated: 2024/11/08 00:04:03 by adahab           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <ctype.h>
+#include <stdio.h>
+
+int	ft_isprint(int ch)
 {
-        if(ch >= 32 && ch <= 126)
-        {
-                return (1);
-        }
-        return (0);
+	if (ch >= 32 && ch <= 126)
+	{
+		return (1);
+	}
+	return (0);
 }
