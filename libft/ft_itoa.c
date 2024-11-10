@@ -6,7 +6,7 @@
 /*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 23:48:37 by adahab            #+#    #+#             */
-/*   Updated: 2024/11/07 23:56:46 by adahab           ###   ########.fr       */
+/*   Updated: 2024/11/10 19:09:29 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,11 @@ char	*n_iszero(void)
 	return (str);
 }
 
-char	*n_ismin(void)
+/*char	*n_ismin(void)
 {
+	char	*str;
+	int		i;
+	char	*intmin;
 	char	*str;
 	int		i;
 	char	*intmin;
@@ -50,6 +53,25 @@ char	*n_ismin(void)
 	str[i + 1] = '\0';
 	while (i--)
 		str[i] = intmin[i];
+	return (str);
+}*/
+char	*n_ismin(void)
+{
+	char	*intmin;
+	char	*str;
+	int		i;
+
+	intmin = "-2147483648";
+	str = malloc(12);
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (intmin[i])
+	{
+		str[i] = intmin[i];
+		i++;
+	}
+	str[i] = '\0';
 	return (str);
 }
 
