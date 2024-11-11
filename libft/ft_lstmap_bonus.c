@@ -6,7 +6,7 @@
 /*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 18:51:28 by adahab            #+#    #+#             */
-/*   Updated: 2024/11/10 18:51:32 by adahab           ###   ########.fr       */
+/*   Updated: 2024/11/10 21:00:35 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		n = ft_lstnew(f(lst->content));
 		if (!n)
 		{
-			ft_lstclear(&n, (*del));
+			ft_lstclear(&n, del);
 			return (NULL);
 		}
 		ft_lstadd_back(&nlst, n);

@@ -6,7 +6,7 @@
 /*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 00:05:28 by adahab            #+#    #+#             */
-/*   Updated: 2024/11/08 00:07:06 by adahab           ###   ########.fr       */
+/*   Updated: 2024/11/10 21:27:40 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ void	*ft_memcpy(void *d, const void *s, size_t n)
 	size_t	i;
 	char	*dest;
 	char	*src;
-
+	
+	if(!d && !s)
+		return (NULL);
 	i = 0;
 	dest = (char *)d;
 	src = (char *)s;

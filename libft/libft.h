@@ -6,7 +6,7 @@
 /*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 00:28:23 by adahab            #+#    #+#             */
-/*   Updated: 2024/11/10 19:05:26 by adahab           ###   ########.fr       */
+/*   Updated: 2024/11/11 15:05:12 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <limits.h>
+# include <stdint.h>
 // mandatory part
 
 int		ft_isalpha(int ch);

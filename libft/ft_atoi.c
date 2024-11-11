@@ -6,7 +6,7 @@
 /*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 00:02:18 by adahab            #+#    #+#             */
-/*   Updated: 2024/11/08 00:02:22 by adahab           ###   ########.fr       */
+/*   Updated: 2024/11/10 21:44:07 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_atoi(const char *str)
 {
 	int	flag;
 	int	i;
-	int	result;
+	long	result;
 
 	flag = 1;
 	i = 0;

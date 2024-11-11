@@ -6,7 +6,7 @@
 /*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 00:08:50 by adahab            #+#    #+#             */
-/*   Updated: 2024/11/10 18:26:54 by adahab           ###   ########.fr       */
+/*   Updated: 2024/11/10 21:29:56 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,12 @@ void	*ft_memmove(void *d, const void *s, size_t n)
 	if (dest <= src)
 	{
 		while (n--)
-		{
 			*dest++ = *src++;
-		}
 	}
 	else
 	{
 		while (n--)
-		{
 			dest[n] = src[n];
-		}
 	}
 	return (d);
 }

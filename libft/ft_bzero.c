@@ -6,7 +6,7 @@
 /*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 00:02:39 by adahab            #+#    #+#             */
-/*   Updated: 2024/11/08 00:02:41 by adahab           ###   ########.fr       */
+/*   Updated: 2024/11/11 14:32:03 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*p;
 
-	p = s;
+	p = (unsigned char *)s;
 	while (n--)
 	{
 		*p = 0;
