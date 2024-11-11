@@ -6,7 +6,7 @@
 /*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 00:25:01 by adahab            #+#    #+#             */
-/*   Updated: 2024/11/08 00:25:04 by adahab           ###   ########.fr       */
+/*   Updated: 2024/11/11 22:04:59 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	unsigned int	j;
 	char			*q;
 
+	if (!s1 || !set)
+		return (NULL);
 	i = 0;
 	j = ft_strlen(s1);
 	while (s1[i] && ft_check_set(s1[i], set))

@@ -6,18 +6,19 @@
 /*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 00:02:18 by adahab            #+#    #+#             */
-/*   Updated: 2024/11/10 21:44:07 by adahab           ###   ########.fr       */
+/*   Updated: 2024/11/11 22:06:29 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "libft.h"
 
 int	ft_atoi(const char *str)
 {
 	int	flag;
 	int	i;
-	long	result;
+	int	result;
 
 	flag = 1;
 	i = 0;

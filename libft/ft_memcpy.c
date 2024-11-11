@@ -6,10 +6,11 @@
 /*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 00:05:28 by adahab            #+#    #+#             */
-/*   Updated: 2024/11/10 21:27:40 by adahab           ###   ########.fr       */
+/*   Updated: 2024/11/11 22:07:50 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -18,8 +19,8 @@ void	*ft_memcpy(void *d, const void *s, size_t n)
 	size_t	i;
 	char	*dest;
 	char	*src;
-	
-	if(!d && !s)
+
+	if (!d || !s)
 		return (NULL);
 	i = 0;
 	dest = (char *)d;

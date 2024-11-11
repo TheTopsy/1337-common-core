@@ -6,12 +6,13 @@
 /*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 23:48:37 by adahab            #+#    #+#             */
-/*   Updated: 2024/11/10 19:09:29 by adahab           ###   ########.fr       */
+/*   Updated: 2024/11/11 19:01:55 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "libft.h"
 
 char	*convertn(int n, int i, char *str)
 {
@@ -38,23 +39,6 @@ char	*n_iszero(void)
 	return (str);
 }
 
-/*char	*n_ismin(void)
-{
-	char	*str;
-	int		i;
-	char	*intmin;
-	char	*str;
-	int		i;
-	char	*intmin;
-
-	intmin = "-2147483648";
-	str = malloc(12);
-	i = 11;
-	str[i + 1] = '\0';
-	while (i--)
-		str[i] = intmin[i];
-	return (str);
-}*/
 char	*n_ismin(void)
 {
 	char	*intmin;

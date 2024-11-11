@@ -6,7 +6,7 @@
 /*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 00:17:09 by adahab            #+#    #+#             */
-/*   Updated: 2024/11/08 00:38:09 by adahab           ###   ########.fr       */
+/*   Updated: 2024/11/11 22:09:36 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	l = 0;
+	if (!s1 || !s2)
+		return (NULL);
 	str = allocate(s1, s2);
 	while (s1[i])
 	{

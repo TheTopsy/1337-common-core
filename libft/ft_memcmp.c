@@ -6,10 +6,11 @@
 /*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 00:04:58 by adahab            #+#    #+#             */
-/*   Updated: 2024/11/10 18:04:51 by adahab           ###   ########.fr       */
+/*   Updated: 2024/11/11 21:07:29 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
 #include <string.h>
 

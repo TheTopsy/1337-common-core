@@ -6,17 +6,13 @@
 /*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 00:13:05 by adahab            #+#    #+#             */
-/*   Updated: 2024/11/08 00:13:07 by adahab           ###   ########.fr       */
+/*   Updated: 2024/11/11 21:25:22 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <fcntl.h>
 #include <unistd.h>
-
-void	ft_putchar_fd(char c, int fd)
-{
-	write(fd, &c, 1);
-}
 
 void	ft_putnbr_fd(int n, int fd)
 {
