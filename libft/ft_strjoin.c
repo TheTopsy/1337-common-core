@@ -6,14 +6,14 @@
 /*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 00:17:09 by adahab            #+#    #+#             */
-/*   Updated: 2024/11/11 22:09:36 by adahab           ###   ########.fr       */
+/*   Updated: 2024/11/11 23:10:36 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-char	*allocate(char const *s1, char const *s2)
+static char	*allocate(char const *s1, char const *s2)
 {
 	int		i;
 	int		l;
@@ -26,6 +26,8 @@ char	*allocate(char const *s1, char const *s2)
 	while (s2[l])
 		l++;
 	str = malloc(l + i + 1);
+	if (!str)
+		return (NULL);
 	return (str);
 }
 
@@ -40,6 +42,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!s1 || !s2)
 		return (NULL);
 	str = allocate(s1, s2);
+	if (!str)
+		return (NULL);
 	while (s1[i])
 	{
 		str[i] = s1[i];
