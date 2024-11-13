@@ -6,7 +6,7 @@
 /*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 00:23:01 by adahab            #+#    #+#             */
-/*   Updated: 2024/11/08 11:18:10 by adahab           ###   ########.fr       */
+/*   Updated: 2024/11/11 23:54:46 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*str;
 
 	i = 0;
-	if (!s)
+	if (!s || !f)
 		return (NULL);
 	str = malloc(ft_strlen(s) + 1);
 	if (!str)

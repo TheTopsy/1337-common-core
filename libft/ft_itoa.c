@@ -6,7 +6,7 @@
 /*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 23:48:37 by adahab            #+#    #+#             */
-/*   Updated: 2024/11/11 19:01:55 by adahab           ###   ########.fr       */
+/*   Updated: 2024/11/11 23:35:49 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include "libft.h"
 
-char	*convertn(int n, int i, char *str)
+static char	*convertn(int n, int i, char *str)
 {
 	str[i] = '\0';
 	i--;
@@ -27,7 +27,7 @@ char	*convertn(int n, int i, char *str)
 	return (str);
 }
 
-char	*n_iszero(void)
+static char	*n_iszero(void)
 {
 	char	*str;
 
@@ -39,7 +39,7 @@ char	*n_iszero(void)
 	return (str);
 }
 
-char	*n_ismin(void)
+static char	*n_ismin(void)
 {
 	char	*intmin;
 	char	*str;
@@ -59,7 +59,7 @@ char	*n_ismin(void)
 	return (str);
 }
 
-int	count_digit(int n)
+static int	count_digit(int n)
 {
 	int	tmp;
 	int	i;

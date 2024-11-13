@@ -6,7 +6,7 @@
 /*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 00:14:41 by adahab            #+#    #+#             */
-/*   Updated: 2024/11/08 10:22:22 by adahab           ###   ########.fr       */
+/*   Updated: 2024/11/11 23:42:46 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int	allocate(char **arr, int pos, size_t buffer)
+static int	allocate(char **arr, int pos, size_t buffer)
 {
 	int	i;
 
@@ -31,7 +31,7 @@ int	allocate(char **arr, int pos, size_t buffer)
 	return (0);
 }
 
-int	cpyword(char **arr, char const *s, char c)
+static int	cpyword(char **arr, char const *s, char c)
 {
 	size_t	len;
 	int		i;
@@ -58,7 +58,7 @@ int	cpyword(char **arr, char const *s, char c)
 	return (0);
 }
 
-size_t	count_word(char const *str, char c)
+static size_t	count_word(char const *str, char c)
 {
 	int	i;
 	int	flag;

@@ -6,7 +6,7 @@
 /*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 00:25:19 by adahab            #+#    #+#             */
-/*   Updated: 2024/11/08 00:27:33 by adahab           ###   ########.fr       */
+/*   Updated: 2024/11/11 23:55:46 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	char	*sub;
 
+	if (!s)
+		return (NULL);
 	i = ft_strlen(s);
 	if (len > (i - start))
 		len = (i - start);
@@ -35,9 +37,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	i = 0;
 	while (len--)
-	{
 		sub[i++] = s[start++];
-	}
 	sub[i] = '\0';
 	return (sub);
 }

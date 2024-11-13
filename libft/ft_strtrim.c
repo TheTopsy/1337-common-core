@@ -6,7 +6,7 @@
 /*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 00:25:01 by adahab            #+#    #+#             */
-/*   Updated: 2024/11/11 22:04:59 by adahab           ###   ########.fr       */
+/*   Updated: 2024/11/11 23:48:47 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int	ft_check_set(char c, char const *set)
+static int	ft_check_set(char c, char const *set)
 {
 	while (*set)
 	{
