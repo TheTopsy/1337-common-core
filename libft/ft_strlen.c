@@ -6,7 +6,7 @@
 /*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 00:22:13 by adahab            #+#    #+#             */
-/*   Updated: 2024/11/11 22:02:27 by adahab           ###   ########.fr       */
+/*   Updated: 2025/01/26 19:38:20 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,9 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
+int main()
+{
+	printf("%ld\n", ft_strlen("houssam"));
+	
+}
+

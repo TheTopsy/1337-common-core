@@ -6,7 +6,7 @@
 /*   By: adahab <adahab@student.1337.ma>             +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 00:08:03 by adahab            #+#    #+#             */
-/*   Updated: 2025/03/22 18:17:58 by adahab           ###   ########.fr       */
+/*   Updated: 2025/03/23 02:52:04 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ char	*get_next_line(int fd)
 	return (output);
 }
 
-int main()
+/*int main()
 {
 	int fd = open("fff.txt", O_RDONLY);
 	//int n = 3;
@@ -117,4 +117,4 @@ int main()
 		free(line);
 		line = get_next_line(fd);
 	}
-}
+}*/
