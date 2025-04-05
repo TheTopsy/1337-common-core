@@ -4,6 +4,35 @@
 #include <math.h>
 #include <fcntl.h>
 
+typedef struct s_mlxstuff
+{
+        void *mlx;
+        void *mlx_win;
+        void *ground;
+        void *wall;
+        void *character1;
+        void *character2;
+        void *potion1;
+        void *potion2;
+        void *portal1;
+        void *portal2;
+	void *portal3;
+	void *portal4;
+	int char_x;
+	int char_y;
+	int por_x;
+	int por_y;
+	int *pot_x;
+	int *pot_y;
+	int potcount;
+	int currentc;
+	int frame;
+	int moves;
+	char *str;
+	char **map;
+	char char_on_exit;
+} t_mlxstuff;
+
 int get_height(char *str)
 {
         int height;
@@ -67,11 +96,11 @@ void fill_map(char ***map, char *str)
 		while(str[i] != '\n')
 		{
 			(*map)[k][v] = str[i];
-			//printf("%c", (*map)[k][v]);
+			printf("%c", (*map)[k][v]);
 			v++;
 			i++;
 		}
-		//printf("\n");
+		printf("\n");
 		v = 0;
 		k++;
 		i++;
@@ -152,7 +181,6 @@ int flood_check(char **map, char *str)
 		{
 			map[i][v] = 'F';
 			check_neighbors(&map, i, v, &ccount, &ecount);
-			//printf("%c\n", map[i + 1][v]);
 		}
 		if(map[i][v] == 'F')
 		{
@@ -161,9 +189,9 @@ int flood_check(char **map, char *str)
 			i = 0;
 			v = 0;
 		}
-		if(v < 7)
+		if(v < get_height(str))
 			v++;
-		else if(i < 5)
+		else if(i < get_width(str))
 		{
 			i++;
 			v = 0;
@@ -174,14 +202,255 @@ int flood_check(char **map, char *str)
 	return compare_counts(ccount, ecount, str);
 }
 
+void set_sprites(t_mlxstuff *stuff)
+{
+	int height;
+	int width;
+
+	stuff->ground = mlx_xpm_file_to_image(stuff->mlx, "../Assets/ground.xpm", &width, &height);
+	stuff->wall = mlx_xpm_file_to_image(stuff->mlx, "../Assets/wall.xpm", &width, &height);
+	stuff->character1 = mlx_xpm_file_to_image(stuff->mlx, "../Assets/character1.xpm", &width, &height);
+	stuff->character2 = mlx_xpm_file_to_image(stuff->mlx, "../Assets/character2.xpm", &width, &height);
+	stuff->potion1 = mlx_xpm_file_to_image(stuff->mlx, "../Assets/potion1.xpm", &width, &height);
+	stuff->potion2 = mlx_xpm_file_to_image(stuff->mlx, "../Assets/potion2.xpm", &width, &height);
+	stuff->portal1 = mlx_xpm_file_to_image(stuff->mlx, "../Assets/portal1.xpm", &width, &height);
+	stuff->portal2 = mlx_xpm_file_to_image(stuff->mlx, "../Assets/portal2.xpm", &width, &height);
+	stuff->portal3 = mlx_xpm_file_to_image(stuff->mlx, "../Assets/portal3.xpm", &width, &height);
+	stuff->portal4 = mlx_xpm_file_to_image(stuff->mlx, "../Assets/portal4.xpm", &width, &height);
+}
+
+int animate(t_mlxstuff *stuff)
+{
+	stuff->frame++;
+	int i;
+
+	i = 0;
+	if (stuff->frame % 10000 < 5000)
+		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->character1, 16 * stuff->char_x, 16 * stuff->char_y);
+	else	
+		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->character2, 16 * stuff->char_x, 16 * stuff->char_y);
+        if (stuff->frame % 10000 < 5000)
+                mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->portal1, 16 * stuff->por_x, 16 * stuff->por_y);
+        else if(stuff->frame % 10000 >= 5000)
+                mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->portal2, 16 * stuff->por_x, 16 * stuff->por_y);
+	if (stuff->frame % 10000 < 5000 && stuff->por_x == stuff->char_x && stuff->por_y == stuff->char_y)
+	{
+                mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->portal3, 16 * stuff->por_x, 16 * stuff->por_y);
+		if(stuff->currentc == stuff->potcount)
+			printf("salat ajmmi\n");
+	}
+	else if(stuff->frame % 10000 >= 5000 && stuff->por_x == stuff->char_x && stuff->por_y == stuff->char_y)
+                mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->portal4, 16 * stuff->por_x, 16 * stuff->por_y);
+	while(i < stuff->potcount)
+	{
+		if (stuff->frame % 10000 < 5000 && stuff->pot_x[i] != -10)
+        	        mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->potion1, 16 * stuff->pot_x[i], 16 * stuff->pot_y[i]);
+        	else if(stuff->frame % 10000 >= 5000 && stuff->pot_x[i] != -10)
+        	        mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->potion2, 16 * stuff->pot_x[i], 16 * stuff->pot_y[i]);
+		i++;
+	}
+	return (0);
+}
+void interact(t_mlxstuff *stuff, char *dir)
+{
+	int i;
+
+        i = 0;
+        if(dir == "right")
+        {
+                while(stuff->pot_x[i])
+                {
+                        if(stuff->pot_x[i] == stuff->char_x + 1 && stuff->pot_y[i] == stuff->char_y)
+			{
+				stuff->pot_x[i] = -10;
+				stuff->currentc++;
+			}
+			i++;
+                }
+        }
+        else if(dir == "left")
+        {
+                while(stuff->pot_x[i])
+                {
+                        if(stuff->pot_x[i] == stuff->char_x - 1 && stuff->pot_y[i] == stuff->char_y)
+                                {
+					stuff->pot_x[i] = -10;
+					stuff->currentc++;
+				}
+                        i++;
+                }
+        }
+	else if(dir == "up")
+        {
+                 while(stuff->pot_x[i])
+                {
+                        if(stuff->pot_x[i] == stuff->char_x && stuff->pot_y[i] == stuff->char_y -1)
+			{
+				stuff->pot_x[i] = -10;
+				stuff->currentc++;
+			}
+                        i++;
+                }
+        }
+        else if(dir == "down")
+        {
+                 while(stuff->pot_x[i])
+                {
+                        if(stuff->pot_x[i] == stuff->char_x && stuff->pot_y[i] == stuff->char_y + 1)
+			{
+				stuff->pot_x[i] = -10;
+				stuff->currentc++;
+			}
+                        i++;
+                }
+        }
+}
+
+int check_next_tile(t_mlxstuff *stuff, char *dir)
+{
+	int i;
+
+	i = 0;
+	if(dir == "right" && stuff->char_x < get_width(stuff->str) && stuff->map[stuff->char_y][stuff->char_x + 1] != '1')
+	{
+		interact(stuff, dir);
+		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->ground, 16 * stuff->char_x, 16 * stuff->char_y);
+		stuff->char_x++;
+		printf("moves : %d\n", ++stuff->moves);
+	}
+	else if(dir == "left" && stuff->char_x > 0 && stuff->map[stuff->char_y][stuff->char_x - 1] != '1')
+	{
+		interact(stuff, dir);
+		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->ground, 16 * stuff->char_x, 16 * stuff->char_y);
+		stuff->char_x--;
+		printf("moves : %d\n", ++stuff->moves);
+	}
+	else if(dir == "up" && stuff->char_y > 0 && stuff->map[stuff->char_y - 1][stuff->char_x] != '1')
+	{
+		interact(stuff, dir);
+		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->ground, 16 * stuff->char_x, 16 * stuff->char_y);
+		stuff->char_y--;
+		printf("moves : %d\n", ++stuff->moves);
+	}
+	else if(dir == "down" && stuff->char_y < get_height(stuff->str) && stuff->map[stuff->char_y + 1][stuff->char_x] != '1')
+	{
+		interact(stuff, dir);
+		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->ground, 16 * stuff->char_x, 16 * stuff->char_y);
+		stuff->char_y++;
+		printf("moves : %d\n", ++stuff->moves);
+	}
+}
+
+
+int     close_window(void *param)
+{
+        (void)param; // Unused for` now
+        exit(0);     // Or use your own cleanup before exit
+        return (0);
+}
+
+int	key_hook(int keycode, t_mlxstuff *stuff)
+{
+	if(keycode == 65363)
+		check_next_tile(stuff, "right");
+	if(keycode == 65361)
+		check_next_tile(stuff, "left");
+	if(keycode == 65364)
+		check_next_tile(stuff, "down");
+	if(keycode == 65362)
+		check_next_tile(stuff, "up");
+	if(keycode == 65307)
+		close_window(stuff);
+	return (0);
+		
+}
+
+void display_map(char **map, int collectables, char *str)
+{
+	t_mlxstuff *stuff;
+	int i;
+	int v;
+	int p;
+
+	p = 0;
+	i = 0;
+	v = 0;
+	stuff = malloc(sizeof(t_mlxstuff));
+	if(!stuff)
+		exit(EXIT_FAILURE);
+	stuff->mlx = mlx_init();
+        stuff->mlx_win = mlx_new_window(stuff->mlx, 1080, 920, "crocodile");
+	set_sprites(stuff);
+	stuff->pot_x = malloc(collectables);
+	stuff->pot_y = malloc(collectables);
+	stuff->potcount = collectables;
+	stuff->str = str;
+	stuff->map = map;
+	while(map[i])
+	{
+		while(map[i][v])
+		{
+			if(map[i][v] == '0')
+				mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->ground, 16 * v, 16 * i);
+			else if(map[i][v] == '1')
+				mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->wall, 16 * v, 16 * i);
+			else if(map[i][v] == 'P')
+			{
+				stuff->char_x = v;
+				stuff->char_y = i;
+			}
+			else if(map[i][v] == 'E')
+			{
+				stuff->por_x = v;
+				stuff->por_y = i;
+			}
+			else if(map[i][v] == 'C')
+			{
+				stuff->pot_x[p] = v;
+				stuff->pot_y[p] = i;
+				p++;
+			}
+			v++;
+		}
+		v = 0;
+		i++;
+	}
+	stuff->frame = 0;
+	mlx_hook(stuff->mlx_win, 17, 0, close_window, NULL);
+	mlx_loop_hook(stuff->mlx, animate, stuff);
+	mlx_key_hook(stuff->mlx_win, key_hook, stuff);
+	mlx_loop(stuff->mlx);
+}
+
+int countc(char *str)
+{
+	int i;
+	int c;
+
+	c = 0;
+	i = 0;
+	while(str[i])
+	{
+		if(str[i] == 'C')
+			c++;
+		i++;
+	}
+	return c;
+}
+
 void strtomap(char *str)
 {
         char **map;
-	
+	int collectables;
+
         allocate_map(&map, str);
         fill_map(&map, str);
 	if(flood_check(map, str))
-		printf("floodcheck passed.");
+	{
+		printf("floodcheck passed.\n");
+		fill_map(&map, str);
+		display_map(map, countc(str), str);
+	}
 }
 
 int is_rectangular(char *map)
@@ -297,15 +566,25 @@ int check_boundries(char *str)
 	return (1);
 }
 
+int check_lastchar(char *str)
+{
+	int i;
 
+	i = 0;
+	while(str[i])
+		i++;
+	i -= 2;
+	if(str[i] != '1' && str[i] != '0' && str[i] != 'C' && str[i] != 'P' && str[i] != 'E')
+		return (0);
+	return (1);
+}
 
 int main(int ac, char **av)
 {
-	void *mlx;
-	void *mlx_win;
 	int fd;
 	char *str;
 	char *tmp;
+	//t_mlxstuff *stuff;
 
 	if(ac > 1 && ft_strlen(av[1]) > 4)
 	{
@@ -325,25 +604,26 @@ int main(int ac, char **av)
 				printf("map is valid.\n");
 			else
 				printf("map is invalid !!\n");
-			if(is_rectangular(str))
-			{
-				if(check_boundries(str))
+			if(check_lastchar(str))
+			{	
+				if(is_rectangular(str))
 				{
-					printf("boundries valid.\n");
-					strtomap(str);
+					if(check_boundries(str))
+					{
+						printf("boundries valid.\n");
+						strtomap(str);
+					}
+					else
+						printf("boundries invalid !!\n");
+					printf("map is rectangular.\n");
 				}
-				else
-					printf("boundries invalid !!\n");
-				printf("map is rectangular.\n");
 			}
+			else
+				printf("found invalid characters in the end !!\n");
 		}
 		else
 			printf("the file is in wrong format !!\n");
 	}
 	else 
 		printf("insert a file !!\n");
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 1080, 920, "crocodile");
-	
-	mlx_loop(mlx);
 }
