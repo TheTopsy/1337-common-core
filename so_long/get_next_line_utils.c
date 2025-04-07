@@ -6,7 +6,7 @@
 /*   By: adahab <adahab@student.1337.ma>             +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 00:09:13 by adahab            #+#    #+#             */
-/*   Updated: 2024/12/31 15:37:00 by adahab           ###   ########.fr       */
+/*   Updated: 2025/04/07 12:13:27 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,34 @@ char	*ft_strdup(char *s)
 
 char	*ft_strjoin(char *s1, char *s2)
 {
+	char	*new;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	if (!s1 || !s2)
+		return (NULL);
+	new = (char *)malloc(sizeof(char) * ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!new)
+		return (NULL);
+	while (s1[i])
+	{
+		new[i] = s1[i];
+		i++;
+	}
+	while (s2[j])
+	{
+		new[i] = s2[j];
+		i++;
+		j++;
+	}
+	new[i] = '\0';
+	return (new);
+}
+
+/*char	*ft_strjoin(char *s1, char *s2)
+{
 	size_t	i;
 	size_t	j;
 	size_t	len_s2;
@@ -87,7 +115,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	free(s1);
 	output[i] = '\0';
 	return (output);
-}
+}*/
 
 char	*ft_strchr(const char *s, int ch)
 {

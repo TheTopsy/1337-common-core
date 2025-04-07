@@ -55,10 +55,10 @@ void free_images(t_mlxstuff *stuff)
 		i++;
 	}
 	free(stuff->map);
+	free(stuff->str);
 	mlx_destroy_window(stuff->mlx, stuff->mlx_win);
 	mlx_destroy_display(stuff->mlx);
 	free(stuff->mlx);
-	free(stuff->mlx_win);
 	free(stuff);
 }
 
@@ -98,7 +98,7 @@ void allocate_map(char ***map, char *str)
 	rows = get_height(str);
 	columns = get_width(str);
 	i = 0;
-	*map = malloc((rows * sizeof(char *)) + 1);
+	*map = malloc((rows + 1) * sizeof(char *));
 	if(!*map)
 		exit(EXIT_FAILURE);
 	(*map)[rows] = '\0';
@@ -123,7 +123,7 @@ void fill_map(char ***map, char *str)
 	k = 0;
 	while(str[i])
 	{
-		while(str[i] != '\n' && str[i])
+		while(str[i] && str[i] != '\n')
 		{
 			(*map)[k][v] = str[i];
 			//printf("%c", (*map)[k][v]);
@@ -213,7 +213,7 @@ int compare_counts(int ccount, int ecount, char *str)
 			e++;
 		i++;
 	}
-	printf("my ecount = %d ecount = %d my ccount = %d ccount = %d\n", ecount, e, ccount, c);
+	//printf("my ecount = %d ecount = %d my ccount = %d ccount = %d\n", ecount, e, ccount, c);
 	if(c == ccount && e == ecount)
 		return (1);
 	return (0);
@@ -389,14 +389,14 @@ void up_down(t_mlxstuff *stuff, char dir)
 		interact(stuff, dir);
 		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->ground, 16 * stuff->char_x, 16 * stuff->char_y);
 		stuff->char_y--;
-		printf("moves : %d\n", ++stuff->moves);
+		//printf("moves : %d\n", ++stuff->moves);
 	}
 	else if(dir == 2 && stuff->char_y < get_height(stuff->str) && stuff->map[stuff->char_y + 1][stuff->char_x] != '1')
 	{
 		interact(stuff, dir);
 		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->ground, 16 * stuff->char_x, 16 * stuff->char_y);
 		stuff->char_y++;
-		printf("moves : %d\n", ++stuff->moves);
+		//printf("moves : %d\n", ++stuff->moves);
 	}
 }
 //REAL PRINTF IS USED HERE
@@ -407,14 +407,14 @@ void check_next_tile(t_mlxstuff *stuff, char dir)
 		interact(stuff, dir);
 		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->ground, 16 * stuff->char_x, 16 * stuff->char_y);
 		stuff->char_x++;
-		printf("moves : %d\n", ++stuff->moves);
+		//printf("moves : %d\n", ++stuff->moves);
 	}
 	else if(dir == 4 && stuff->char_x > 0 && stuff->map[stuff->char_y][stuff->char_x - 1] != '1')
 	{
 		interact(stuff, dir);
 		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->ground, 16 * stuff->char_x, 16 * stuff->char_y);
 		stuff->char_x--;
-		printf("moves : %d\n", ++stuff->moves);
+		//printf("moves : %d\n", ++stuff->moves);
 	}
 	else
 		up_down(stuff, dir);
@@ -510,7 +510,7 @@ int countc(char *str)
 
 void strtomap(char *str)
 {
-        char **map;
+        char **map = NULL;
 
         allocate_map(&map, str);
         fill_map(&map, str);
@@ -522,6 +522,13 @@ void strtomap(char *str)
 	}
 	else 
 		printf("floodcheck didnt pass !!\n");
+	/*int i = 0;
+	while(map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);*/
 }
 
 int is_rectangular(char *map)
@@ -542,7 +549,7 @@ int is_rectangular(char *map)
 		//line_length--;
 	//DEBUG
 	//line_length = 28;
-	printf("line length = %d\n", line_length);
+	//printf("line length = %d\n", line_length);
 	while(map[i])
 	{
 		if(map[i] == '\n')
