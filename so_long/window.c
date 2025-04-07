@@ -1,4 +1,5 @@
-#include "/usr/include/minilibx-linux/mlx.h"
+//#include "/usr/include/minilibx-linux/mlx.h"
+#include "/mnt/c/Users/azert/Desktop/fdf/minilibx-linux/mlx.h"
 #include "get_next_line.h"
 #include <stdio.h>
 #include <math.h>
@@ -36,25 +37,29 @@ typedef struct s_mlxstuff
 void free_images(t_mlxstuff *stuff)
 {
 	int i = 0;
-	free(stuff->character1);
-	free(stuff->character2);
-	free(stuff->potion1);
-	free(stuff->potion2);
-	free(stuff->portal1);
-	free(stuff->portal2);
-	free(stuff->portal3);
-	free(stuff->portal4);
-	free(stuff->ground);
-	free(stuff->wall);
+	mlx_destroy_image(stuff->mlx, stuff->character1);
+	mlx_destroy_image(stuff->mlx, stuff->character2);
+	mlx_destroy_image(stuff->mlx, stuff->potion1);
+	mlx_destroy_image(stuff->mlx, stuff->potion2);
+	mlx_destroy_image(stuff->mlx, stuff->portal1);
+	mlx_destroy_image(stuff->mlx, stuff->portal2);
+	mlx_destroy_image(stuff->mlx, stuff->portal3);
+	mlx_destroy_image(stuff->mlx, stuff->portal4);
+	mlx_destroy_image(stuff->mlx, stuff->ground);
+	mlx_destroy_image(stuff->mlx, stuff->wall);
 	free(stuff->pot_x);
 	free(stuff->pot_y);
-	while(map[i])
+	while(stuff->map[i])
 	{
 		free(stuff->map[i]);
 		i++;
 	}
 	free(stuff->map);
-	//printf("%d\n", stuff->char_x);
+	mlx_destroy_window(stuff->mlx, stuff->mlx_win);
+	mlx_destroy_display(stuff->mlx);
+	free(stuff->mlx);
+	free(stuff->mlx_win);
+	free(stuff);
 }
 
 int get_height(char *str)
@@ -444,7 +449,7 @@ void display_map(char **map, int collectables, char *str)
 	if(!stuff)
 		exit(EXIT_FAILURE);
 	stuff->mlx = mlx_init();
-    stuff->mlx_win = mlx_new_window(stuff->mlx, 1080, 720, "game");
+	stuff->mlx_win = mlx_new_window(stuff->mlx, 1080, 720, "game");
 	set_sprites(stuff);
 	stuff->pot_x = malloc(collectables * sizeof(int));
 	stuff->pot_y = malloc(collectables * sizeof(int));
@@ -481,7 +486,7 @@ void display_map(char **map, int collectables, char *str)
 		i++;
 	}
 	stuff->frame = 0;
-	mlx_hook(stuff->mlx_win, 17, 0, close_window, NULL);
+	mlx_hook(stuff->mlx_win, 17, 0, close_window, stuff);
 	mlx_loop_hook(stuff->mlx, animate, stuff);
 	mlx_key_hook(stuff->mlx_win, key_hook, stuff);
 	mlx_loop(stuff->mlx);
@@ -710,4 +715,5 @@ int main(int ac, char **av)
 	else 
 		printf("insert a file !!\n");
 	free(str);
+	free(tmp);
 }
