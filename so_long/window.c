@@ -294,7 +294,7 @@ void set_sprites(t_mlxstuff *stuff)
 
 int     close_window(void *param)
 {
-        t_mlxstuff *stuff = param;
+        t_mlxstuff *stuff = (t_mlxstuff *)param;
 		free_images(stuff);
         exit(0);
         return (0);
@@ -453,6 +453,49 @@ int	key_hook(int keycode, t_mlxstuff *stuff)
 	return (0);
 }
 
+void initialize_stuff(t_mlxstuff **stuff, int collectables, char *str, int *i, int *v, int *p)
+{
+	*p = 0;
+	*i = 0;
+	*v = 0;
+	(*stuff) = malloc(sizeof(t_mlxstuff));
+	if(!(*stuff))
+		exit(EXIT_FAILURE);
+	(*stuff)->currentc = 0;
+	(*stuff)->mlx = mlx_init();
+	(*stuff)->mlx_win = mlx_new_window((*stuff)->mlx, get_width(str) *16 , get_height(str) *16, "game");
+	set_sprites((*stuff));
+	(*stuff)->pot_x = malloc(collectables * sizeof(int));
+	(*stuff)->pot_y = malloc(collectables * sizeof(int));
+	(*stuff)->potcount = collectables;
+	(*stuff)->str = str;
+	
+}
+
+int display_tile(t_mlxstuff *stuff, char **map, int i, int v, int p)
+{
+	if(map[i][v] == '0')
+		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->ground, 16 * v, 16 * i);
+	else if(map[i][v] == '1')
+		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->wall, 16 * v, 16 * i);
+	else if(map[i][v] == 'P')
+	{
+		stuff->char_x = v;
+		stuff->char_y = i;
+	}
+	else if(map[i][v] == 'E')
+	{
+		stuff->por_x = v;
+		stuff->por_y = i;
+	}
+	else if(map[i][v] == 'C')
+	{
+		stuff->pot_x[p] = v;
+		stuff->pot_y[p] = i;
+		return (1);
+	}
+	return (0);
+}
 void display_map(char **map, int collectables, char *str)
 {
 	t_mlxstuff *stuff;
@@ -460,45 +503,14 @@ void display_map(char **map, int collectables, char *str)
 	int v;
 	int p;
 
-	p = 0;
-	i = 0;
-	v = 0;
-	stuff = malloc(sizeof(t_mlxstuff));
-	if(!stuff)
-		exit(EXIT_FAILURE);
-	memset(stuff, 0, sizeof(t_mlxstuff));
-	stuff->mlx = mlx_init();
-	stuff->mlx_win = mlx_new_window(stuff->mlx, get_width(str) *16 , get_height(str) *16, "game");
-	set_sprites(stuff);
-	stuff->pot_x = malloc(collectables * sizeof(int));
-	stuff->pot_y = malloc(collectables * sizeof(int));
-	stuff->potcount = collectables;
-	stuff->str = str;
+	initialize_stuff(&stuff, collectables, str, &i, &v, &p);
 	stuff->map = map;
 	while(map[i])
 	{
 		while(map[i][v])
-		{
-			if(map[i][v] == '0')
-				mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->ground, 16 * v, 16 * i);
-			else if(map[i][v] == '1')
-				mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->wall, 16 * v, 16 * i);
-			else if(map[i][v] == 'P')
-			{
-				stuff->char_x = v;
-				stuff->char_y = i;
-			}
-			else if(map[i][v] == 'E')
-			{
-				stuff->por_x = v;
-				stuff->por_y = i;
-			}
-			else if(map[i][v] == 'C')
-			{
-				stuff->pot_x[p] = v;
-				stuff->pot_y[p] = i;
+		{	
+			if(display_tile(stuff, map, i, v, p))
 				p++;
-			}
 			v++;
 		}
 		v = 0;
@@ -541,13 +553,6 @@ void strtomap(char *str)
 	}
 	else 
 		printf("floodcheck didnt pass !!\n");
-	/*int i = 0;
-	while(map[i])
-	{
-		free(map[i]);
-		i++;
-	}
-	free(map);*/
 }
 
 int is_rectangular(char *map)
@@ -561,7 +566,6 @@ int is_rectangular(char *map)
 	line_length = 0;
 	while(map[line_length] != '\n')
 	{
-
 		// printf("l = %c\n", map[line_length]);
 		line_length++;
 	}
@@ -634,25 +638,32 @@ int check_format(char *str)
 	}
 	return (1);
 }
-//some wrong
-int check_boundries(char *str)
+
+int check_roof(char *str, int *l)
 {
 	int i;
-	int l;
 
-	l = 0;
 	i = 0;
+	*l = 0;
+	while(str[*l])
+		(*l)++;
 	while(str[i] != '\n')
 	{
 		if(str[i] != '1')
 			return (0);
 		i++;
 	}
-	while(str[l])
-		l++;
+	return (1);
+}
+
+int check_boundries(char *str)
+{
+	int i;
+	int l;
+
 	i = 0;
-	//l--;
-	//printf("kkkkkkkkkkkkkkkkkkkkkkkkkk = %d\n", str[l]);
+	if(!check_roof(str, &l))
+		return (0);
 	while(str[i])
 	{
 		if(str[i] == '\n')
@@ -686,6 +697,14 @@ int check_lastchar(char *str)
 		return (0);
 	return (1);
 }
+//handle freeing when error happens
+//handle / in front of the of the file
+
+/*void error_found(char type)
+{
+
+	exit(0);
+}*/
 
 int main(int ac, char **av)
 {
