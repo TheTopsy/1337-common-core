@@ -60,7 +60,7 @@ char	*ft_strdup(char *s)
 	return (output);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+/*char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*new;
 	int		i;
@@ -86,9 +86,9 @@ char	*ft_strjoin(char *s1, char *s2)
 	}
 	new[i] = '\0';
 	return (new);
-}
+}*/
 
-/*char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	size_t	i;
 	size_t	j;
@@ -115,7 +115,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	free(s1);
 	output[i] = '\0';
 	return (output);
-}*/
+}
 
 char	*ft_strchr(const char *s, int ch)
 {

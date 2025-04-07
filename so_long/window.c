@@ -1,22 +1,22 @@
-//#include "/usr/include/minilibx-linux/mlx.h"
-#include "/mnt/c/Users/azert/Desktop/fdf/minilibx-linux/mlx.h"
+#include "/usr/include/minilibx-linux/mlx.h"
+//#include "/mnt/c/Users/azert/Desktop/fdf/minilibx-linux/mlx.h"
 #include "get_next_line.h"
 #include <stdio.h>
 #include <math.h>
 #include <fcntl.h>
-
+#include <string.h>
 typedef struct s_mlxstuff
 {
-        void *mlx;
-        void *mlx_win;
-        void *ground;
-        void *wall;
-        void *character1;
-        void *character2;
-        void *potion1;
-        void *potion2;
-        void *portal1;
-        void *portal2;
+    void *mlx;
+    void *mlx_win;
+    void *ground;
+    void *wall;
+    void *character1;
+    void *character2;
+    void *potion1;
+    void *potion2;
+    void *portal1;
+    void *portal2;
 	void *portal3;
 	void *portal4;
 	int char_x;
@@ -121,16 +121,33 @@ void fill_map(char ***map, char *str)
 	v = 0;
 	i = 0;
 	k = 0;
-	while(str[i])
+	/*while(str[i])
 	{
+		printf("%d\n", str[i]);
 		while(str[i] && str[i] != '\n')
 		{
+			printf("%d\n", str[i]);
 			(*map)[k][v] = str[i];
 			//printf("%c", (*map)[k][v]);
 			v++;
 			i++;
 		}
 		//printf("\n");
+		v = 0;
+		k++;
+		i++;
+	}*/
+
+	while(k < get_height(str))
+	{
+		while(v < get_width(str))
+		{
+			(*map)[k][v] = str[i];
+			printf("%c", (*map)[k][v]);
+			v++;
+			i++;
+		}
+		printf("\n");
 		v = 0;
 		k++;
 		i++;
@@ -337,9 +354,10 @@ void left_right(t_mlxstuff *stuff, char dir)
 	int i;
 
 	i = 0;
+
 	if(dir == 6)
 	{
-		while(stuff->pot_x[i])
+		while(i < stuff->potcount)
 		{
 			if(stuff->pot_x[i] == stuff->char_x + 1 && stuff->pot_y[i] == stuff->char_y)
 				collect_potion(stuff, i);
@@ -348,7 +366,7 @@ void left_right(t_mlxstuff *stuff, char dir)
 	}
 	else if(dir == 4)
 	{
-		while(stuff->pot_x[i])
+		while(i < stuff->potcount)
 		{
 			if(stuff->pot_x[i] == stuff->char_x - 1 && stuff->pot_y[i] == stuff->char_y)
 				collect_potion(stuff, i);
@@ -364,7 +382,7 @@ void interact(t_mlxstuff *stuff, char dir)
         left_right(stuff, dir);
 		if(dir == 8)
         {
-        	while(stuff->pot_x[i])
+        	while(i < stuff->potcount)
             {
                 if(stuff->pot_x[i] == stuff->char_x && stuff->pot_y[i] == stuff->char_y -1)
 				collect_potion(stuff, i);
@@ -373,7 +391,7 @@ void interact(t_mlxstuff *stuff, char dir)
         }
         else if(dir == 2)
         {
-             while(stuff->pot_x[i])
+             while(i < stuff->potcount)
             {
 				if(stuff->pot_x[i] == stuff->char_x && stuff->pot_y[i] == stuff->char_y + 1)
 				collect_potion(stuff, i);
@@ -448,8 +466,9 @@ void display_map(char **map, int collectables, char *str)
 	stuff = malloc(sizeof(t_mlxstuff));
 	if(!stuff)
 		exit(EXIT_FAILURE);
+	memset(stuff, 0, sizeof(t_mlxstuff));
 	stuff->mlx = mlx_init();
-	stuff->mlx_win = mlx_new_window(stuff->mlx, 1080, 720, "game");
+	stuff->mlx_win = mlx_new_window(stuff->mlx, get_width(str) *16 , get_height(str) *16, "game");
 	set_sprites(stuff);
 	stuff->pot_x = malloc(collectables * sizeof(int));
 	stuff->pot_y = malloc(collectables * sizeof(int));
