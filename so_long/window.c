@@ -5,6 +5,7 @@
 #include <math.h>
 #include <fcntl.h>
 #include <string.h>
+
 typedef struct s_mlxstuff
 {
     void *mlx;
@@ -32,34 +33,91 @@ typedef struct s_mlxstuff
 	char *str;
 	char **map;
 	char char_on_exit;
+	int i;
+	int p;
+	int v;
 } t_mlxstuff;
 
+typedef struct s_counts
+{
+	int ccount;
+	int ecount;
+} t_counts;
+
+void error_found(char type)
+{
+	printf("Error\n");
+	if(type == 1)
+		printf("invalid file, wrong format !\n");
+	else if(type == 2)
+		printf("the map doesnt have all the components !\n");
+	else if(type == 3)
+		printf("the map is not bounded by walls !\n");
+	else if(type == 4)
+		printf("the map is not rectangular !\n");
+	else if(type == 5)
+		printf("file doesnt exist !\n");
+	else if(type == 6)
+		printf("found newline(s) after the last character of the map !\n");
+	else if(type == 7)
+		printf("soft locked ! (make sure there is a valid path to the exit and the collectables)\n");
+	else if(type == 8)
+		printf("insert a file !\n");
+	exit(0);
+}
 void free_images(t_mlxstuff *stuff)
 {
-	int i = 0;
-	mlx_destroy_image(stuff->mlx, stuff->character1);
-	mlx_destroy_image(stuff->mlx, stuff->character2);
-	mlx_destroy_image(stuff->mlx, stuff->potion1);
-	mlx_destroy_image(stuff->mlx, stuff->potion2);
-	mlx_destroy_image(stuff->mlx, stuff->portal1);
-	mlx_destroy_image(stuff->mlx, stuff->portal2);
-	mlx_destroy_image(stuff->mlx, stuff->portal3);
-	mlx_destroy_image(stuff->mlx, stuff->portal4);
-	mlx_destroy_image(stuff->mlx, stuff->ground);
-	mlx_destroy_image(stuff->mlx, stuff->wall);
-	free(stuff->pot_x);
-	free(stuff->pot_y);
+	if(stuff->character1)
+		mlx_destroy_image(stuff->mlx, stuff->character1);
+	if(stuff->character2)
+		mlx_destroy_image(stuff->mlx, stuff->character2);
+	if(stuff->potion1)
+		mlx_destroy_image(stuff->mlx, stuff->potion1);
+	if(stuff->potion2)
+		mlx_destroy_image(stuff->mlx, stuff->potion2);
+	if(stuff->portal1)
+		mlx_destroy_image(stuff->mlx, stuff->portal1);
+	if(stuff->portal2)
+		mlx_destroy_image(stuff->mlx, stuff->portal2);
+	if(stuff->portal3)
+		mlx_destroy_image(stuff->mlx, stuff->portal3);
+	if(stuff->portal4)
+		mlx_destroy_image(stuff->mlx, stuff->portal4);
+	if(stuff->ground)
+		mlx_destroy_image(stuff->mlx, stuff->ground);
+	if(stuff->wall)
+		mlx_destroy_image(stuff->mlx, stuff->wall);
+	if(stuff->pot_x)
+		free(stuff->pot_x);
+	if(stuff->pot_y)
+		free(stuff->pot_y);
+}
+void free_all(t_mlxstuff *stuff)
+{
+	int i;
+
+	i = 0;
+	free_images(stuff);
 	while(stuff->map[i])
 	{
 		free(stuff->map[i]);
 		i++;
 	}
-	free(stuff->map);
-	free(stuff->str);
-	mlx_destroy_window(stuff->mlx, stuff->mlx_win);
-	mlx_destroy_display(stuff->mlx);
-	free(stuff->mlx);
-	free(stuff);
+	if(stuff->map)
+		free(stuff->map);
+	if(stuff->str)
+		free(stuff->str);
+	
+		
+	if(stuff->mlx)
+	{
+		if(stuff->mlx_win)
+			mlx_destroy_window(stuff->mlx, stuff->mlx_win);
+		mlx_destroy_display(stuff->mlx);
+		free(stuff->mlx);
+	}
+	if(stuff)
+		free(stuff);
 }
 
 int get_height(char *str)
@@ -143,77 +201,53 @@ void fill_map(char ***map, char *str)
 		while(v < get_width(str))
 		{
 			(*map)[k][v] = str[i];
-			printf("%c", (*map)[k][v]);
+			//printf("%c", (*map)[k][v]);
 			v++;
 			i++;
 		}
-		printf("\n");
+		//printf("\n");
 		v = 0;
 		k++;
 		i++;
 	}
 }
 
-int check_char(char c, int *ccount, int *ecount)
+int check_char(char c, t_counts *counts)
 {
 	if(c == 'C')
-		(*ccount)++;
+		counts->ccount++;
 	else if(c == 'E')
-		(*ecount)++;
+		counts->ecount++;
 	else if(c == '1' || c == 'V')
 		return (1);
 	return (0);
 }
 
-void check_neighbors(char ***map, int i, int v, int *ccount, int *ecount)
+void check_neighbors(char ***map, int i, int v, t_counts *counts)
 {
 		if((*map)[i] && (*map)[i][v + 1])
                 {
-                	if(!check_char((*map)[i][v + 1], ccount, ecount))
+                	if(!check_char((*map)[i][v + 1], counts))
                         	(*map)[i][v + 1] = 'F';
                 }
                 if((*map)[i] && v > 0 && (*map)[i][v - 1])
                 {
-                	if(!check_char((*map)[i][v - 1], ccount, ecount))
+                	if(!check_char((*map)[i][v - 1], counts))
                         	(*map)[i][v - 1] = 'F';
                 }
                 if((*map)[i + 1] && (*map)[i + 1][v])
                 {
-                	if(!check_char((*map)[i + 1][v], ccount, ecount))
+                	if(!check_char((*map)[i + 1][v], counts))
 				(*map)[i + 1][v] = 'F';
                 }
                 if(i > 0 && (*map)[i - 1] && (*map)[i - 1][v])
                 {
-                	if(!check_char((*map)[i - 1][v], ccount, ecount))
+                	if(!check_char((*map)[i - 1][v], counts))
         	                (*map)[i - 1][v] = 'F';
                 }
 }
 
-/*void check_neighbors(char **map, int i, int v, int *ccount, int *ecount)
-{
-                if(map[i] && map[i][v + 1])
-                {
-                        if(!check_char(map[i][v + 1], ccount, ecount))
-                                map[i][v + 1] = 'F';
-                }
-                if(map[i] && v > 0 && map[i][v - 1])
-                {
-                        if(!check_char(map[i][v - 1], ccount, ecount))
-                                map[i][v - 1] = 'F';
-                }
-                if(map[i + 1] && map[i + 1][v])
-                {
-                        if(!check_char(map[i + 1][v], ccount, ecount))
-                                map[i + 1][v] = 'F';
-                }
-                if(i > 0 && map[i - 1] && map[i - 1][v])
-                {
-                        if(!check_char(map[i - 1][v], ccount, ecount))
-                                map[i - 1][v] = 'F';
-                }
-}*/
-
-int compare_counts(int ccount, int ecount, char *str)
+int compare_counts(t_counts *counts, char *str)
 {
 	int i;
 	int c;
@@ -231,48 +265,52 @@ int compare_counts(int ccount, int ecount, char *str)
 		i++;
 	}
 	//printf("my ecount = %d ecount = %d my ccount = %d ccount = %d\n", ecount, e, ccount, c);
-	if(c == ccount && e == ecount)
+	if(c == counts->ccount && e == counts->ecount)
 		return (1);
 	return (0);
 }
 
+void flood_check_utils(int *i, int *v, char flag)
+{
+	if(!flag)
+	{
+		*i = 0;
+		*v = 0;
+	}
+	else
+	{
+		(*i)++;
+		*v = 0;
+	}
+}
 
-int flood_check(char **map, char *str)
+int flood_check(char **map, char *str, t_counts *counts)
 {
 	int i;
 	int v;
-	int ecount;
-	int ccount;
 
-	ccount = 0;
-	ecount = 0;
 	v = 0;
 	i = 0;
 	while(map[i])
 	{
-		if(map[i][v] == 'P')
+		while(map[i][v])
 		{
-			map[i][v] = 'F';
-			check_neighbors(&map, i, v, &ccount, &ecount);
+			if(map[i][v] == 'P')
+			{
+				map[i][v] = 'F';
+				check_neighbors(&map, i, v, counts);
+			}
+			if(map[i][v] == 'F')
+			{
+				map[i][v] = 'V';
+				check_neighbors(&map, i, v, counts);
+				flood_check_utils(&i, &v, 0);
+			}
+			v++;
 		}
-		if(map[i][v] == 'F')
-		{
-			map[i][v] = 'V';
-			check_neighbors(&map, i, v, &ccount, &ecount);
-			i = 0;
-			v = 0;
-		}
-		if(v < get_width(str))
-		v++;
-		else if(i < get_height(str))
-		{
-			i++;
-			v = 0;
-		}
-		else
-			break;
+		flood_check_utils(&i, &v, 1);
 	}
-	return compare_counts(ccount, ecount, str);
+	return compare_counts(counts, str);
 }
 
 void set_sprites(t_mlxstuff *stuff)
@@ -295,7 +333,7 @@ void set_sprites(t_mlxstuff *stuff)
 int     close_window(void *param)
 {
         t_mlxstuff *stuff = (t_mlxstuff *)param;
-		free_images(stuff);
+		free_all(stuff);
         exit(0);
         return (0);
 }
@@ -374,6 +412,9 @@ void left_right(t_mlxstuff *stuff, char dir)
 		}
 	}
 }
+
+//PRINTF L9I9yyaaaaaaaaaaaaaaaaaa
+
 void interact(t_mlxstuff *stuff, char dir)
 {
 		int i;
@@ -407,14 +448,12 @@ void up_down(t_mlxstuff *stuff, char dir)
 		interact(stuff, dir);
 		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->ground, 16 * stuff->char_x, 16 * stuff->char_y);
 		stuff->char_y--;
-		//printf("moves : %d\n", ++stuff->moves);
 	}
 	else if(dir == 2 && stuff->char_y < get_height(stuff->str) && stuff->map[stuff->char_y + 1][stuff->char_x] != '1')
 	{
 		interact(stuff, dir);
 		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->ground, 16 * stuff->char_x, 16 * stuff->char_y);
 		stuff->char_y++;
-		//printf("moves : %d\n", ++stuff->moves);
 	}
 }
 //REAL PRINTF IS USED HERE
@@ -425,14 +464,12 @@ void check_next_tile(t_mlxstuff *stuff, char dir)
 		interact(stuff, dir);
 		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->ground, 16 * stuff->char_x, 16 * stuff->char_y);
 		stuff->char_x++;
-		//printf("moves : %d\n", ++stuff->moves);
 	}
 	else if(dir == 4 && stuff->char_x > 0 && stuff->map[stuff->char_y][stuff->char_x - 1] != '1')
 	{
 		interact(stuff, dir);
 		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->ground, 16 * stuff->char_x, 16 * stuff->char_y);
 		stuff->char_x--;
-		//printf("moves : %d\n", ++stuff->moves);
 	}
 	else
 		up_down(stuff, dir);
@@ -453,68 +490,73 @@ int	key_hook(int keycode, t_mlxstuff *stuff)
 	return (0);
 }
 
-void initialize_stuff(t_mlxstuff **stuff, int collectables, char *str, int *i, int *v, int *p)
+void initialize_stuff(t_mlxstuff **stuff, int collectables, char *str)
 {
-	*p = 0;
-	*i = 0;
-	*v = 0;
 	(*stuff) = malloc(sizeof(t_mlxstuff));
 	if(!(*stuff))
 		exit(EXIT_FAILURE);
 	(*stuff)->currentc = 0;
 	(*stuff)->mlx = mlx_init();
+	if(!(*stuff)->mlx)
+		exit(0);
 	(*stuff)->mlx_win = mlx_new_window((*stuff)->mlx, get_width(str) *16 , get_height(str) *16, "game");
+	if(!(*stuff)->mlx_win)
+		exit(0);
 	set_sprites((*stuff));
 	(*stuff)->pot_x = malloc(collectables * sizeof(int));
+	if(!(*stuff)->pot_x)
+		exit(0);
 	(*stuff)->pot_y = malloc(collectables * sizeof(int));
+	if(!(*stuff)->pot_y)
+		exit(0);
 	(*stuff)->potcount = collectables;
 	(*stuff)->str = str;
-	
+	(*stuff)->i = 0;
+	(*stuff)->v = 0;
+	(*stuff)->p = 0;
 }
 
-int display_tile(t_mlxstuff *stuff, char **map, int i, int v, int p)
+int display_tile(t_mlxstuff *stuff, char **map)
 {
-	if(map[i][v] == '0')
-		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->ground, 16 * v, 16 * i);
-	else if(map[i][v] == '1')
-		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->wall, 16 * v, 16 * i);
-	else if(map[i][v] == 'P')
+	if(map[stuff->i][stuff->v] == '0')
+		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->ground, 16 * stuff->v, 16 * stuff->i);
+	else if(map[stuff->i][stuff->v] == '1')
+		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->wall, 16 * stuff->v, 16 * stuff->i);
+	else if(map[stuff->i][stuff->v] == 'P')
 	{
-		stuff->char_x = v;
-		stuff->char_y = i;
+		stuff->char_x = stuff->v;
+		stuff->char_y = stuff->i;
 	}
-	else if(map[i][v] == 'E')
+	else if(map[stuff->i][stuff->v] == 'E')
 	{
-		stuff->por_x = v;
-		stuff->por_y = i;
+		stuff->por_x = stuff->v;
+		stuff->por_y = stuff->i;
 	}
-	else if(map[i][v] == 'C')
+	else if(map[stuff->i][stuff->v] == 'C')
 	{
-		stuff->pot_x[p] = v;
-		stuff->pot_y[p] = i;
+		stuff->pot_x[stuff->p] = stuff->v;
+		stuff->pot_y[stuff->p] = stuff->i;
 		return (1);
 	}
 	return (0);
 }
+
 void display_map(char **map, int collectables, char *str)
 {
 	t_mlxstuff *stuff;
-	int i;
-	int v;
-	int p;
 
-	initialize_stuff(&stuff, collectables, str, &i, &v, &p);
+	initialize_stuff(&stuff, collectables, str);
 	stuff->map = map;
-	while(map[i])
+	while(map[stuff->i])
 	{
-		while(map[i][v])
-		{	
-			if(display_tile(stuff, map, i, v, p))
-				p++;
-			v++;
+		while(map[stuff->i][stuff->v])
+		{
+			if(display_tile(stuff, map))
+				stuff->p++;
+			stuff->v++;
 		}
-		v = 0;
-		i++;
+		stuff->v = 0;
+		stuff->i++;
 	}
 	stuff->frame = 0;
 	mlx_hook(stuff->mlx_win, 17, 0, close_window, stuff);
@@ -539,20 +581,39 @@ int countc(char *str)
 	return c;
 }
 
+void init_counts(t_counts *counts)
+{
+	counts->ccount = 0;
+	counts->ecount = 0;
+}
+
 void strtomap(char *str)
 {
-        char **map = NULL;
+    char **map;
+	int i;
+	t_counts *counts;
 
-        allocate_map(&map, str);
-        fill_map(&map, str);
-	if(flood_check(map, str))
+	map = NULL;
+	counts = malloc(sizeof(t_counts));
+	init_counts(counts);
+	i = 0;
+    allocate_map(&map, str);
+    fill_map(&map, str);
+	if(flood_check(map, str, counts))
 	{
-		printf("floodcheck passed.\n");
 		fill_map(&map, str);
+		free(counts);
 		display_map(map, countc(str), str);
 	}
-	else 
-		printf("floodcheck didnt pass !!\n");
+	else
+	{
+		while(map[i])
+			free(map[i++]);
+		free(map);
+		free(str);
+		free(counts);
+		error_found(7);
+	}
 }
 
 int is_rectangular(char *map)
@@ -565,14 +626,7 @@ int is_rectangular(char *map)
 	lines = 0;
 	line_length = 0;
 	while(map[line_length] != '\n')
-	{
-		// printf("l = %c\n", map[line_length]);
 		line_length++;
-	}
-		//line_length--;
-	//DEBUG
-	//line_length = 28;
-	//printf("line length = %d\n", line_length);
 	while(map[i])
 	{
 		if(map[i] == '\n')
@@ -581,8 +635,6 @@ int is_rectangular(char *map)
 	}
 	lines++;
 	i++;
-	// printf("number of lines = %d\n", lines);
-	// printf("i = %d\n", i);
 	if((i - lines) == (lines * line_length))
 		return (1);
 	return (0);
@@ -627,15 +679,14 @@ int check_format(char *str)
 	while(str[i])
 		i++;
 	i--;
-	//printf("%c\n", str[i]);
 	while(k <= j)
 	{
-		//printf("%c\n", ber[j]);
 		if(ber[j] != str[i])
 			return (0);
 		i--;
 		j--;
 	}
+	i--;
 	return (1);
 }
 
@@ -692,73 +743,83 @@ int check_lastchar(char *str)
 	i = 0;
 	while(str[i])
 		i++;
-	i -= 2;
+	i--;
+	printf("%c\n\n", str[i]);
 	if(str[i] != '1' && str[i] != '0' && str[i] != 'C' && str[i] != 'P' && str[i] != 'E')
 		return (0);
 	return (1);
 }
-//handle freeing when error happens
-//handle / in front of the of the file
 
-/*void error_found(char type)
+void map_checks(char *str)
 {
-
-	exit(0);
-}*/
-
-int main(int ac, char **av)
-{
-	int fd;
-	char *str;
-	char *tmp;
-	//t_mlxstuff *stuff;
-
-	if(ac > 1 && ft_strlen(av[1]) > 4)
-	{
-		if(check_format(av[1]))
-		{
-			printf("the file is in correct format !\n");
-			fd = open(av[1], O_RDONLY);		
-			tmp = get_next_line(fd);
-			str = malloc(1);
-			str[0] = 0;
-			while(tmp)
-			{
-				str = ft_strjoin(str, tmp);
-				free(tmp);
-				tmp = get_next_line(fd);
-			}
-			if(check_map(str))
-				printf("map is valid.\n");
-			else
-			{
-				printf("map is invalid !!\n");
-				return (0);
-			}
 			if(check_lastchar(str))
 			{	
 				if(is_rectangular(str))
 				{
 					if(check_boundries(str))
-					{
-						printf("boundries valid.\n");
 						strtomap(str);
-					}
 					else
-						printf("boundries invalid !!\n");
-					printf("map is rectangular.\n");
+					{
+						free(str);
+						error_found(3);
+					}
 				}
-				else 
-					printf("map not rectangular\n");
+				else
+				{
+					free(str);
+					error_found(4);
+				}			
 			}
 			else
-				printf("found invalid characters in the end !!\n");
+			{
+				free(str);
+				error_found(6);
+			}
+}
+
+void fill_str(char **str, char *file_name)
+{
+	char *tmp;
+	int fd;
+
+	fd = open(file_name, O_RDONLY);
+	if(fd == -1)
+	{
+		free(*str);
+		error_found(5);	
+	}
+	tmp = get_next_line(fd);
+	while(tmp)
+	{
+		*str = ft_strjoin(*str, tmp);
+		free(tmp);
+		tmp = get_next_line(fd);
+	}
+	free(tmp);
+}
+
+int main(int ac, char **av)
+{
+	char *str;
+
+	if(ac > 1 && ft_strlen(av[1]) > 4)
+	{
+		if(check_format(av[1]))
+		{
+			str = malloc(1);
+			str[0] = 0;
+			fill_str(&str, av[1]);
+			if(!check_map(str))
+			{
+				free(str);
+				error_found(2);		
+			}
+			map_checks(str);
 		}
 		else
-			printf("the file is in wrong format !!\n");
+			error_found(1);
 	}
-	else 
-		printf("insert a file !!\n");
+	else
+		error_found(8);
 	free(str);
-	free(tmp);
 }
