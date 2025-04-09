@@ -95,5 +95,7 @@ void fill_str(char **str, char *file_name);
 int	ft_putstr(char *str, char c, char flag);
 int	ft_putnbr(long n);
 int	ft_puthex(unsigned long n, char c, char print0x, char flag);
-int	check_format(va_list args, char c);
+int	printf_check_format(va_list args, char c);
 int	ft_printf(const char *s, ...);
+
+#endif

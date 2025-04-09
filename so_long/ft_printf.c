@@ -6,7 +6,7 @@
 /*   By: topsy <adahab@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:10:05 by adahab            #+#    #+#             */
-/*   Updated: 2024/12/07 14:46:29 by adahab           ###   ########.fr       */
+/*   Updated: 2025/04/09 08:07:51 by adahab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	ft_puthex(unsigned long n, char c, char print0x, char flag)
 	return (count);
 }
 
-int	check_format(va_list args, char c)
+int	printf_check_format(va_list args, char c)
 {
 	int	count;
 
