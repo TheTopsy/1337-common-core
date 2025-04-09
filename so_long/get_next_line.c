@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "solong.h"
 
 #ifndef BUFFER_SIZE
 # define BUFFER_SIZE 10

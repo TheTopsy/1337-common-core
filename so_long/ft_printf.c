@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "solong.h"
 
 int	ft_putstr(char *str, char c, char flag)
 {
@@ -128,7 +128,7 @@ int	ft_printf(const char *s, ...)
 		if (*s && *s == '%')
 		{
 			s++;
-			count += check_format(args, *s);
+			count += printf_check_format(args, *s);
 			s++;
 		}
 	}

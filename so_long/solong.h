@@ -1,10 +1,18 @@
 # ifndef SOLONG_H
 # define SOLONG_H
 
+#include "/usr/include/minilibx-linux/mlx.h"
+//#include "/mnt/c/Users/azert/Desktop/fdf/minilibx-linux/mlx.h"
+#include <math.h>
+#include <string.h>
+
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
+# include <stdint.h>
+
 
 typedef struct s_mlxstuff
 {
@@ -54,6 +62,12 @@ char	*get_next_line(int fd);
 char	*move_to_next_line(char *savedline);
 char	*read_line(int fd, char *savedline);
 
+int	ft_putstr(char *str, char c, char flag);
+int	ft_putnbr(long n);
+int	ft_puthex(unsigned long n, char c, char print0x, char flag);
+int	printf_check_format(va_list args, char c);
+int	ft_printf(const char *s, ...);
+
 void error_found(char type);
 void free_images(t_mlxstuff *stuff);
 void free_all(t_mlxstuff *stuff);
@@ -92,10 +106,6 @@ void map_checks(char *str);
 void fill_str(char **str, char *file_name);
 
 
-int	ft_putstr(char *str, char c, char flag);
-int	ft_putnbr(long n);
-int	ft_puthex(unsigned long n, char c, char print0x, char flag);
-int	printf_check_format(va_list args, char c);
-int	ft_printf(const char *s, ...);
+
 
 #endif
