@@ -17,7 +17,7 @@
 #endif
 
 #if BUFFER_SIZE < 0
-#undef BUFFER_SIZE
+# undef BUFFER_SIZE
 # define BUFFER_SIZE 0
 #endif
 
@@ -92,9 +92,9 @@ char	*get_next_line(int fd)
 {
 	static char	*savedline;
 	char		*output;
-	
-	if(BUFFER_SIZE == 0)
-		return NULL;
+
+	if (BUFFER_SIZE == 0)
+		return (NULL);
 	savedline = read_line(fd, savedline);
 	if (!savedline || !*savedline)
 		return (free(savedline), savedline = NULL, NULL);

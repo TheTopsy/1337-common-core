@@ -1,88 +1,100 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   solong.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adahab <adahab@student.1337.ma>             +#+  +:+      +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/11 12:09:11 by adahab            #+#    #+#             */
+/*   Updated: 2025/04/11 12:09:59 by adahab           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "solong.h"
 
-int check_boundries(char *str)
+int	check_boundries(char *str)
 {
-	int i;
-	int l;
+	int	i;
+	int	l;
 
 	i = 0;
-	if(!check_roof(str, &l))
+	if (!check_roof(str, &l))
 		return (0);
-	while(str[i])
+	while (str[i])
 	{
-		if(str[i] == '\n')
+		if (str[i] == '\n')
 		{
-			if(str[i + 1] != '1' && i < l)
+			if (str[i + 1] != '1' && i < l)
 				return (0);
-			if(str[i - 1] != '1')
+			if (str[i - 1] != '1')
 				return (0);
 		}
 		i++;
 	}
 	l--;
-	while(str[l] != '\n')
+	while (str[l] != '\n')
 	{
-		if(str[l] != '1')
+		if (str[l] != '1')
 			return (0);
 		l--;
 	}
 	return (1);
 }
 
-int check_lastchar(char *str)
+int	check_lastchar(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 		i++;
 	i--;
-	if(str[i] != '1' && str[i] != '0' && str[i] != 'C' && str[i] != 'P' && str[i] != 'E')
+	if (str[i] != '1' && str[i] != '0' && str[i] != 'C' && str[i] != 'P'
+		&& str[i] != 'E')
 		return (0);
 	return (1);
 }
 
-void map_checks(char *str)
+void	map_checks(char *str)
 {
-			if(check_lastchar(str))
-			{	
-				if(is_rectangular(str))
-				{
-					if(check_boundries(str))
-						strtomap(str);
-					else
-					{
-						free(str);
-						error_found(3);
-					}
-				}
-				else
-				{
-					free(str);
-					error_found(4);
-				}			
-			}
+	if (check_lastchar(str))
+	{
+		if (is_rectangular(str))
+		{
+			if (check_boundries(str))
+				strtomap(str);
 			else
 			{
 				free(str);
-				error_found(6);
+				error_found(3);
 			}
+		}
+		else
+		{
+			free(str);
+			error_found(4);
+		}
+	}
+	else
+	{
+		free(str);
+		error_found(6);
+	}
 }
 
-void fill_str(char **str, char *file_name)
+void	fill_str(char **str, char *file_name)
 {
-	char *tmp;
-	int fd;
+	char	*tmp;
+	int		fd;
 
 	fd = open(file_name, O_RDONLY);
-	if(fd == -1)
+	if (fd == -1)
 	{
 		free(*str);
-		error_found(5);	
+		error_found(5);
 	}
 	tmp = get_next_line(fd);
-	while(tmp)
+	while (tmp)
 	{
 		*str = ft_strjoin(*str, tmp);
 		free(tmp);
@@ -91,22 +103,22 @@ void fill_str(char **str, char *file_name)
 	free(tmp);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	char *str;
+	char	*str;
 
-	if(ac > 1 && ft_strlen(av[1]) > 4)
+	if (ac > 1 && ft_strlen(av[1]) > 4)
 	{
-		if(check_format(av[1]))
+		if (check_format(av[1]))
 		{
 			str = malloc(1);
 			str[0] = 0;
 			fill_str(&str, av[1]);
 			invalid_chars(str);
-			if(!check_map(str))
+			if (!check_map(str))
 			{
 				free(str);
-				error_found(2);		
+				error_found(2);
 			}
 			map_checks(str);
 		}
