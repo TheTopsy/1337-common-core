@@ -100,12 +100,10 @@ int is_rectangular(char *map);
 int check_map(char *map);
 int check_format(char *str);
 int check_roof(char *str, int *l);
+void	invalid_chars(char *str);
 int check_boundries(char *str);
 int check_lastchar(char *str);
 void map_checks(char *str);
 void fill_str(char **str, char *file_name);
-
-
-
 
 #endif

@@ -19,6 +19,8 @@ void error_found(char type)
 		ft_printf("soft locked ! (make sure there is a valid path to the exit and the collectables)\n");
 	else if(type == 8)
 		ft_printf("insert a file !\n");
+	else if(type == 9)
+		ft_printf("invalid characters in the map !\n");
 	exit(0);
 }
 void free_images(t_mlxstuff *stuff)

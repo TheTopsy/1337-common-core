@@ -102,6 +102,7 @@ int main(int ac, char **av)
 			str = malloc(1);
 			str[0] = 0;
 			fill_str(&str, av[1]);
+			invalid_chars(str);
 			if(!check_map(str))
 			{
 				free(str);

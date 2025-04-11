@@ -40,3 +40,19 @@ int check_roof(char *str, int *l)
 	}
 	return (1);
 }
+
+void	invalid_chars(char *str)
+{
+	int i;
+
+	i = 0;
+	while(str[i])
+	{
+		if(str[i] != '1' && str[i] != '0' && str[i] != 'P' && str[i] != 'C' && str[i] != 'E' && str[i] != '\n')
+			{
+				free(str);
+				error_found(9);
+			}
+		i++;
+	}
+}
