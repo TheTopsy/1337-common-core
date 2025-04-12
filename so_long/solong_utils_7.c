@@ -73,3 +73,13 @@ void	invalid_chars(char *str)
 		i++;
 	}
 }
+
+void	animate_p(t_mlxstuff *stuff)
+{
+	if (stuff->frame % 10000 < 5000)
+		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->character1,
+			16 * stuff->char_x, 16 * stuff->char_y);
+	else
+		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->character2,
+			16 * stuff->char_x, 16 * stuff->char_y);
+}

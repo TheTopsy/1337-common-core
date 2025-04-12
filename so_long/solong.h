@@ -93,6 +93,7 @@ int			flood_check(char **map, char *str, t_counts *counts);
 void		set_sprites(t_mlxstuff *stuff);
 int			close_window(void *param);
 void		animate_potions(t_mlxstuff *stuff);
+void		animate_p(t_mlxstuff *stuff);
 int			animate(t_mlxstuff *stuff);
 void		collect_potion(t_mlxstuff *stuff, int i);
 void		left_right(t_mlxstuff *stuff, char dir);

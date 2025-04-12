@@ -15,12 +15,7 @@
 int	animate(t_mlxstuff *stuff)
 {
 	stuff->frame++;
-	if (stuff->frame % 10000 < 5000)
-		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->character1,
-			16 * stuff->char_x, 16 * stuff->char_y);
-	else
-		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->character2,
-			16 * stuff->char_x, 16 * stuff->char_y);
+	animate_p(stuff);
 	if (stuff->frame % 10000 < 5000)
 		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->portal1, 16
 			* stuff->por_x, 16 * stuff->por_y);
@@ -106,8 +101,8 @@ void	interact(t_mlxstuff *stuff, char dir)
 
 void	up_down(t_mlxstuff *stuff, char dir)
 {
-	if (dir == 8 && stuff->char_y > 0 && stuff->map[stuff->char_y
-		- 1][stuff->char_x] != '1')
+	if (dir == 8 && stuff->char_y > 0 && stuff->map
+		[stuff->char_y - 1][stuff->char_x] != '1')
 	{
 		interact(stuff, dir);
 		mlx_put_image_to_window(stuff->mlx, stuff->mlx_win, stuff->ground, 16
