@@ -10,21 +10,24 @@ int main(int ac, char **av)
 	int k = 0;
 	char c;
 	pid = atoi(av[1]);
-	c = 5;
-	while(i--)
+	c = 0;
+
+	while(av[2][k])
 	{
-		if((c >> i) & 1)
+		c = av[2][k];
+		while(i--)
 		{
-			printf("1");
-			kill(pid, SIGUSR1);
+			if((c >> i) & 1)
+			{
+				kill(pid, SIGUSR1);
+			}
+			else
+			{
+				kill(pid, SIGUSR2);
+			}
+			usleep(900);
 		}
-		else
-		{
-			printf("0");
-			kill(pid, SIGUSR2);
-		}
-		usleep(200);
-		//i++;
+		i = 8;
+		k++;
 	}
-	printf("\n");
 }

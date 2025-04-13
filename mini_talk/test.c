@@ -14,16 +14,20 @@ void handler(int sig)
 
 	if (sig == SIGUSR1)
 	{
-		c = c | (1 << bit);
+		c = (c << 1) | 1;
 	}
+	else if (sig == SIGUSR2)
+		c = (c << 1) | 0;
 	bit++;
 	if (bit == 8)
 	{
-		printf("%d\n", c);
-		//write(1, &c, 1);
+		//printf("%d\n", c);
+		//c += 48;
+		write(1, &c, 1);
 		c = 0;
 		bit = 0;
 	}
+	usleep(300);
 }
 
 int main()
@@ -36,9 +40,9 @@ int main()
 	sigemptyset(&sa.sa_mask);
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
+	printf("pid is = %d\n", pid);
 	while(1)
 	{
-		printf("pid is = %d\n", pid);
 		pause();
 		
 	}
