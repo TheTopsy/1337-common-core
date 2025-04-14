@@ -1,14 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   server.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adahab <adahab@student.1337.ma>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/14 16:44:30 by adahab            #+#    #+#             */
+/*   Updated: 2025/04/14 16:44:50 by adahab           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minitalk.h"
 
-void handler(int sig, siginfo_t *info, void *test)
+void	handler(int sig, siginfo_t *info, void *test)
 {
-	int i;	 	
-	static char c;
-	static int bit ;
-	static int oldpid;
+	int			i;
+	static char	c;
+	static int	bit;
+	static int	oldpid;
 
 	i = 8;
-	if(info->si_pid != oldpid)
+	if (info->si_pid != oldpid)
 	{
 		c = 0;
 		bit = 0;
@@ -24,14 +36,14 @@ void handler(int sig, siginfo_t *info, void *test)
 		c = 0;
 		bit = 0;
 	}
-	kill(info->si_pid,SIGUSR1);
+	kill(info->si_pid, SIGUSR1);
 	oldpid = info->si_pid;
 }
 
-int main()
+int	main(void)
 {
-	struct sigaction sa;
-	int pid;
+	struct sigaction	sa;
+	int					pid;
 
 	pid = getpid();
 	sa.sa_sigaction = handler;
@@ -41,9 +53,8 @@ int main()
 	sigaction(SIGUSR2, &sa, NULL);
 	write(1, "pid is =", 8);
 	ft_putnbr(pid);
-	while(1)
+	while (1)
 	{
 		pause();
-		
 	}
 }
